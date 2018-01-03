@@ -27,7 +27,8 @@ SETLINK="https://download.loveroms.com/extras/files/bios/Atari%20Lynx%20Bios(USA
 SETNAME="lynx"
 MAKE_WORKDIR
 DOWNLOADZIP
-#EXTRACTZIP
+EXTRACTZIP
+
 }
 
 DREAMCAST(){
