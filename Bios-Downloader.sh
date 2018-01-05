@@ -19,8 +19,9 @@ echo "as $SYSNAME.$EXT"
 wget -c $LINK -O $WORKDIR/$SYSNAME/$SYSNAME.$EXT
 }
 CHECK_SUM(){
-echo "checking if $BIOSNAME has $CHECHKSUM:"
+echo "Checksum of $BIOSNAME is:"
 md5sum $WORKDIR/$BIOSNAME | awk '{ print $1 }'
+
 }
 EXTRACTZIP(){
 echo "extracting $WORKDIR/$SYSNAME/$SYSNAME.$EXT"
@@ -34,6 +35,27 @@ cp $WORKDIR/$SYSNAME/$BIOSNAME $WORKDIR
 }
 
 SYSTEM_DOWNLOAD(){
+
+EXAMPLE_SYSTEM(){
+echo "Example-System"
+SYSNAME="Example-System" ##	Systemname for wich a workingdir is created. 
+LINK="http//example.link"	## The link to download a file from.
+EXT="zip"	## The extention of the downloaded file.
+BIOSNAME="examplebios.rom" ## The name of the file needed by emulators.
+CHECKSUM="somechecksumnumber" ## The checksum to be checked if file is valid.
+if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
+then ## if not then download, extract, copy to workdir and check for validity.
+    echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD
+    EXTRACTZIP
+    COPY_BIOSNAME_WORKDIR
+    CHECK_SUM
+else ## if flie exists then verify if checksum checks out.
+	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM
+fi
+}
 
 SEGA32X(){
 echo "Sega32x"
@@ -86,6 +108,7 @@ else
     CHECK_SUM
 fi
 }
+
 
 #
 #	LIST OF SYSTEM BIOS FILES WITH CHECKSUM AND DOWNLOADLINK (WIP):
@@ -149,8 +172,7 @@ fi
 #	LINK:	http://50.7.92.186/ukIpalnq13Lasfp75BBaa/epforums/upload/2/3/4/5/2/192311740647317996.zip
 
 
-
-
+#EXAMPLE_SYSTEM 
 SEGA32X
 
 }
