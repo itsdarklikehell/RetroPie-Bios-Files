@@ -16,7 +16,7 @@ echo "downloading $BIOSFILE "
 echo "from $LINK"
 echo "to $WORKDIR/$SYSNAME"
 echo "as $SYSNAME.$EXT"
-wget -c $LINK -o $WORKDIR/$SYSNAME/$SYSNAME.$EXT
+wget -c $LINK -O $WORKDIR/$SYSNAME/$SYSNAME.$EXT
 }
 CHECK_SUM(){
 echo "checking if $BIOSFILE has $CHECHKSUM"
