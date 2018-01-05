@@ -22,7 +22,7 @@ CHECK_SUM(){
 echo "checking if $BIOSFILE has $CHECHKSUM"
 shasum $WORKDIR/$BIOSNAME | awk '$1=="$CHECKSUM"{print"good to go"}'
 }
-EXTRACTZIP
+EXTRACTZIP(){
 echo "extracting $WORKDIR/$SYSNAME/$SYSNAME.$EXT"
 unzip $WORKDIR/$SYSNAME/$SYSNAME.$EXT -d $WORKDIR/$SYSNAME
 #rm $WORKDIR/$SYSNAME/$SYSNAME.$EXT
