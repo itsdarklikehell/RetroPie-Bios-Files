@@ -21,7 +21,12 @@ wget -c $LINK -O $WORKDIR/$SYSNAME/$SYSNAME.$EXT
 CHECK_SUM(){
 echo "Checksum of $BIOSNAME is:"
 md5sum $WORKDIR/$BIOSNAME | awk '{ print $1 }'
-
+if [ $1 == $CHECKSUM ] ## checking if $1 is $CHECKSUM.
+then ## if not then download, extract, copy to workdir and check for validity.
+    echo "$1 is NOT the same as $CHECKSUM !"
+else ## if flie exists then verify if checksum checks out.
+	echo "$1 checksum is $CHECKSUM"
+fi
 }
 EXTRACTZIP(){
 echo "extracting $WORKDIR/$SYSNAME/$SYSNAME.$EXT"
