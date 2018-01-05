@@ -19,10 +19,8 @@ echo "as $SYSNAME.$EXT"
 wget -c $LINK -O $WORKDIR/$SYSNAME/$SYSNAME.$EXT
 }
 CHECK_SUM(){
-echo "checking if $BIOSNAME has $CHECHKSUM"
-shasum -c $WORKDIR/$BIOSNAME | awk '$1=="$CHECKSUM"{print"good to go"}'
-shasum -c $WORKDIR/$BIOSNAME
-}
+echo "checking if $BIOSNAME has $CHECHKSUM:"
+md5sum $WORKDIR/$BIOSNAME | awk '{ print $1 }'}
 EXTRACTZIP(){
 echo "extracting $WORKDIR/$SYSNAME/$SYSNAME.$EXT"
 unzip $WORKDIR/$SYSNAME/$SYSNAME.$EXT -d $WORKDIR/$SYSNAME
