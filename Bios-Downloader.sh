@@ -27,26 +27,13 @@ echo "extracting $WORKDIR/$SYSNAME/$SYSNAME.$EXT"
 unzip $WORKDIR/$SYSNAME/$SYSNAME.$EXT -d $WORKDIR/$SYSNAME
 #rm $WORKDIR/$SYSNAME/$SYSNAME.$EXT
 }
-COPY_BIOSFILE_WORKDIR(){
-echo "copy new $BIOSFILE to $WORKDIR"
-cp $WORKDIR/$SYSNAME/$BIOSFILE $WORKDIR
+COPY_BIOSNAME_WORKDIR(){
+echo "copy new $BIOSNAME to $WORKDIR"
+cp $WORKDIR/$SYSNAME/$BIOSNAME $WORKDIR
 }
 }
 
 SYSTEM_DOWNLOAD(){
-
-EXAMPLE_SYSTEM(){
-echo "Example-System"
-SYSNAME="Example-System"	## The system name of wich a folder will be created in the working dir
-BIOSNAME="EXAMPLE_BIOS.BIN"	## The name of the bios file.
-CHECKSUM="SOME MD5 HASH"	## The checksum to check for verification.
-LINK="HTTP://SOMEURLTO/DOWNLOAD.ZIP" ## The link to download the file from.
-EXT="ZIP" ## The extention of the downloaded file.
-MAKE_WORKDIR	## Make the directories if not already present.
-DOWNLOAD	## Download the file from the link.
-EXTRACTZIP	## Extract the downloaded zip file.
-COPY_BIOSFILE_WORKDIR
-}
 
 SEGA32X(){
 echo "Sega32x"
@@ -65,7 +52,7 @@ else
     MAKE_WORKDIR
 DOWNLOAD
 EXTRACTZIP
-COPY_BIOSFILE_WORKDIR
+COPY_BIOSNAME_WORKDIR
 fi
 BIOSNAME="32X_M_BIOS.BIN"
 CHECKSUM="f88354ec482be09aeccd76a97bb75868"
@@ -78,7 +65,7 @@ else
     MAKE_WORKDIR
 DOWNLOAD
 EXTRACTZIP
-COPY_BIOSFILE_WORKDIR
+COPY_BIOSNAME_WORKDIR
 fi
 BIOSNAME="32X_S_BIOS.BIN"
 CHECKSUM="7f041b6a55cd7423a6c08a219335269e"
@@ -91,7 +78,7 @@ else
     MAKE_WORKDIR
 DOWNLOAD
 EXTRACTZIP
-COPY_BIOSFILE_WORKDIR
+COPY_BIOSNAME_WORKDIR
 fi
 }
 
@@ -158,7 +145,7 @@ fi
 
 
 
-#EXAMPLE_SYSTEM
+
 SEGA32X
 
 }
