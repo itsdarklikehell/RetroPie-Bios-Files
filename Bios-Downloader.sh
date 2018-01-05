@@ -27,6 +27,10 @@ echo "extracting $WORKDIR/$SYSNAME/$SYSNAME.$EXT"
 unzip $WORKDIR/$SYSNAME/$SYSNAME.$EXT -d $WORKDIR/$SYSNAME
 #rm $WORKDIR/$SYSNAME/$SYSNAME.$EXT
 }
+COPY_BIOSFILE(){
+echo "copy new $BIOSFILE to $BIOSDIR"
+cp $WORKINGDIR\$SYSNAME\$BIOSFILE $BIOSDIR
+}
 }
 
 SYSTEM_DOWNLOAD(){
@@ -41,6 +45,7 @@ EXT="ZIP" ## The extention of the downloaded file.
 MAKE_WORKDIR	## Make the directories if not already present.
 DOWNLOAD	## Download the file from the link.
 EXTRACTZIP	## Extract the downloaded zip file.
+COPY_BIOSFILE 
 }
 
 SEGA32X(){
@@ -60,6 +65,7 @@ else
     MAKE_WORKDIR
 DOWNLOAD
 EXTRACTZIP
+COPY_BIOSFILE
 fi
 BIOSNAME="32X_M_BIOS.BIN"
 CHECKSUM="f88354ec482be09aeccd76a97bb75868"
@@ -72,6 +78,7 @@ else
     MAKE_WORKDIR
 DOWNLOAD
 EXTRACTZIP
+COPY_BIOSFILE
 fi
 BIOSNAME="32X_S_BIOS.BIN"
 CHECKSUM="7f041b6a55cd7423a6c08a219335269e"
@@ -84,6 +91,7 @@ else
     MAKE_WORKDIR
 DOWNLOAD
 EXTRACTZIP
+COPY_BIOSFILE
 fi
 }
 
