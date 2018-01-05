@@ -60,14 +60,14 @@ BIOSNAME="32X_M_BIOS.BIN"
 CHECKSUM="f88354ec482be09aeccd76a97bb75868"
 if [ -e $WORKING_DIR/$BIOSNAME ]
 then
-    echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
-    CHECK_SUM
-else
     echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
     DOWNLOAD
     EXTRACTZIP
     COPY_BIOSNAME_WORKDIR
+    CHECK_SUM
+else
+    echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
     CHECK_SUM
 fi
 
@@ -75,14 +75,14 @@ BIOSNAME="32X_S_BIOS.BIN"
 CHECKSUM="7f041b6a55cd7423a6c08a219335269e"
 if [ -e $WORKING_DIR/$BIOSNAME ]
 then
-    echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
-    CHECK_SUM
-else
     echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
     DOWNLOAD
     EXTRACTZIP
     COPY_BIOSNAME_WORKDIR
+    CHECK_SUM
+else
+    echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
     CHECK_SUM
 fi
 }
