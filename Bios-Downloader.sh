@@ -3,23 +3,29 @@
 #echo "RetroPie/RetroArch/EmulationStation Bios files downloader"
 #echo "= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = ="
 CONFIGURE(){
+echo "configuring working directories and copying bios files allready present in ~/RetroPie/BIOS directory to working directory"
 WORKDIR=~/RetroPie-Bios-Files/BIOS
 BIOSDIR=~/RetroPie/BIOS
 cp $BIOSDIR $WORKDIR
 MAKE_WORKDIR(){
+echo "making $WORKDIR/$SYSNAME/"
 mkdir -p $WORKDIR/$SYSNAME/
 }
 DOWNLOAD(){
+echo "downloading $BIOSFILE "
+echo "from $LINK"
+echo "to $WORKDIR/$SYSNAME"
+echo "as $SYSNAME.$EXT"
 wget -c $LINK -o $WORKDIR/$SYSNAME/$SYSNAME.$EXT
 }
 CHECK_SUM(){
+echo "checking if $BIOSFILE has $CHECHKSUM"
 shasum $WORKDIR/$BIOSNAME | awk '$1=="$CHECKSUM"{print"good to go"}'
-So normally you get this output from shasum
-
 }
-EXTRACTZIP(){
-unzip $WORKDIR/$SYSNAME/$SYSNAME.zip -d $WORKDIR/$SYSNAME
-#rm $WORKDIR/$SYSNAME/$SYSNAME.zip
+EXTRACTZIP
+echo "extracting $WORKDIR/$SYSNAME/$SYSNAME.$EXT"
+unzip $WORKDIR/$SYSNAME/$SYSNAME.$EXT -d $WORKDIR/$SYSNAME
+#rm $WORKDIR/$SYSNAME/$SYSNAME.$EXT
 }
 }
 
