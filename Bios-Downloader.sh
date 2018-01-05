@@ -20,7 +20,8 @@ wget -c $LINK -O $WORKDIR/$SYSNAME/$SYSNAME.$EXT
 }
 CHECK_SUM(){
 echo "checking if $BIOSNAME has $CHECHKSUM:"
-md5sum $WORKDIR/$BIOSNAME | awk '{ print $1 }'}
+md5sum $WORKDIR/$BIOSNAME | awk '{ print $1 }'
+}
 EXTRACTZIP(){
 echo "extracting $WORKDIR/$SYSNAME/$SYSNAME.$EXT"
 unzip $WORKDIR/$SYSNAME/$SYSNAME.$EXT -d $WORKDIR/$SYSNAME
