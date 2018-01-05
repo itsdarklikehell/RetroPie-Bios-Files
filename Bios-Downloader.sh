@@ -12,6 +12,11 @@ mkdir -p $WORKDIR/$SYSNAME/
 DOWNLOAD(){
 wget -c $LINK -o $WORKDIR/$SYSNAME/$SYSNAME.$EXT
 }
+CHECK_SUM(){
+shasum $WORKDIR/$BIOSNAME | awk '$1=="$CHECKSUM"{print"good to go"}'
+So normally you get this output from shasum
+
+}
 EXTRACTZIP(){
 unzip $WORKDIR/$SYSNAME/$SYSNAME.zip -d $WORKDIR/$SYSNAME
 #rm $WORKDIR/$SYSNAME/$SYSNAME.zip
@@ -35,19 +40,45 @@ EXTRACTZIP	## Extract the downloaded zip file.
 SEGA32X(){
 echo "Sega32x"
 SYSNAME="Sega32x"
+LINK="http://50.7.92.186/ukIpalnq13Lasfp75BBaa/epforums/upload/2/3/4/5/2/192311740647317996.zip"
+EXT="zip"
 
 BIOSNAME="32X_G_BIOS.BIN"
 CHECKSUM="6a5433f6a132a2b683635819a6dcf085"
-BIOSNAME="32X_M_BIOS.BIN"
-CHECKSUM="f88354ec482be09aeccd76a97bb75868"
-BIOSNAME="32X_S_BIOS.BIN"
-CHECKSUM="7f041b6a55cd7423a6c08a219335269e"
-
-LINK="http://50.7.92.186/ukIpalnq13Lasfp75BBaa/epforums/upload/2/3/4/5/2/192311740647317996.zip"
-EXT="zip"
-MAKE_WORKDIR
+if [ -e $WORKING_DIR/$BIOSNAME ]
+then
+    echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM
+else
+    echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
 DOWNLOAD
 #EXTRACTZIP
+fi
+BIOSNAME="32X_M_BIOS.BIN"
+CHECKSUM="f88354ec482be09aeccd76a97bb75868"
+if [ -e $WORKING_DIR/$BIOSNAME ]
+then
+    echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM
+else
+    echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+DOWNLOAD
+#EXTRACTZIP
+fi
+BIOSNAME="32X_S_BIOS.BIN"
+CHECKSUM="7f041b6a55cd7423a6c08a219335269e"
+if [ -e $WORKING_DIR/$BIOSNAME ]
+then
+    echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM
+else
+    echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+DOWNLOAD
+#EXTRACTZIP
+fi
 }
 
 #
