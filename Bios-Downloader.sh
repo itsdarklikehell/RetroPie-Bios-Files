@@ -28,6 +28,8 @@ SETNAME="lynx"
 MAKE_WORKDIR
 DOWNLOADZIP
 EXTRACTZIP
+cp $WORKDIR/$SETNAME/lynboot.img $BIOSDIR/lynxboot.img
+
 }
 
 DREAMCAST(){
@@ -39,6 +41,8 @@ SETNAME="dreamcast"
 MAKE_WORKDIR
 DOWNLOADZIP
 EXTRACTZIP
+cp $WORKDIR/$SETNAME/dc_boot.bin $BIOSDIR/dc_boot.bin
+cp $WORKDIR/$SETNAME/dc_flash.bin $BIOSDIR/dc_flash.bin
 }
 
 GAMEBOY_ADVANCE(){
@@ -48,15 +52,17 @@ SETNAME="gba"
 MAKE_WORKDIR
 DOWNLOADZIP
 EXTRACTZIP
+cp $WORKDIR/$SETNAME/gba_bios.bin $BIOSDIR/gba_bios.bin
 }
 
 GAMEBOY_COLOR(){
 echo "Gameboy Color"
-SETLINK="https://m.loveroms.com/extras/files/bios/GameboyColorBios.zip "
+SETLINK="https://m.loveroms.com/extras/files/bios/GameboyColorBios.zip"
 SETNAME="gbc"
 MAKE_WORKDIR
 DOWNLOADZIP
 EXTRACTZIP
+#cp $WORKDIR/$SETNAME/gbc_bios.bin $BIOSDIR/gbc_bios.bin
 }
 
 MAME(){
@@ -66,6 +72,7 @@ SETNAME="mame"
 MAKE_WORKDIR
 DOWNLOADZIP
 EXTRACTZIP
+#cp $WORKDIR/$SETNAME/*.zip $BIOSDIR/*.zip
 }
 
 NEOGEO(){
@@ -75,6 +82,7 @@ SETNAME="neogeo"
 MAKE_WORKDIR
 DOWNLOADZIP
 EXTRACTZIP
+#cp $WORKDIR/$SETNAME/*.zip $BIOSDIR/*.zip
 }
 
 NINTENDO_DS(){
@@ -84,6 +92,9 @@ SETNAME="nds"
 MAKE_WORKDIR
 DOWNLOADZIP
 EXTRACTZIP
+cp $WORKDIR/$SETNAME/firmware.bin $BIOSDIR/firmware.bin
+cp $WORKDIR/$SETNAME/biosnds9.rom $BIOSDIR/biosnds9.rom
+cp $WORKDIR/$SETNAME/biosnds7.rom $BIOSDIR/biosnds7.rom
 }
 
 PLAYSTATION(){
