@@ -35,9 +35,11 @@ else
 fi
 if [[ $1 = $CHECKSUM ]] ## checking if $1 is $CHECKSUM.
 then ## if not then download, extract, copy to workdir and check for validity.
-    echo "The checksum of $BIOSNAME is NOT the same as $CHECKSUM !"
+    echo " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! "
+    echo "The checksum of $BIOSNAME is NOT VALID, it is not the same as $CHECKSUM !"
+    echo " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! "
 else ## if flie exists then verify if checksum checks out.
-	echo "The checksum of $BIOSNAME is eaqual to $CHECKSUM."
+	echo "The checksum of $BIOSNAME is valid."
     COPY_BIOSNAME_BIOSDIR
 fi
 }
@@ -51,7 +53,7 @@ echo "copy new $BIOSNAME to $WORKDIR"
 cp $WORKDIR/$SYSNAME/*.* $WORKDIR
 }
 COPY_BIOSNAME_BIOSDIR(){
-echo "Copying $BIOSNAME with verrified checksum $CHECKSUM to $BIOSDIR"
+echo "Copying new $BIOSNAME with verrified checksum $CHECKSUM to $BIOSDIR"
 if [[ $SYSNAME  = Atari-7800 ]]
 then 
 	mv $WORKDIR/$SYSNAME/7800.ROM $WORKDIR/"7800 BIOS (U).rom"
@@ -74,7 +76,7 @@ BIOSNAME="examplebios.rom" ## The name of the file needed by emulators.
 CHECKSUM="somechecksumnumber" ## The checksum to be checked if file is valid.
 if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if file exists then verify if checksum checks out.
-    echo "$BIOSNAME already exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    echo "$BIOSNAME already exists, checking if file is valid."
     CHECK_SUM ## verrify and if valid copy to $BIOSDIR
 else ## if not then download, extract, copy to workdir and check for validity.
 	echo "$BIOSNAME does not exist."
@@ -96,7 +98,7 @@ BIOSNAME="32X_G_BIOS.BIN"
 CHECKSUM="6a5433f6a132a2b683635819a6dcf085"
 if [ -e $WORKDIR/$BIOSNAME ]
 then
-    echo "$BIOSNAME already exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    echo "$BIOSNAME already exists, checking if file is valid."
     CHECK_SUM
 else
 	echo "$BIOSNAME does not exist."
@@ -111,7 +113,7 @@ BIOSNAME="32X_M_BIOS.BIN"
 CHECKSUM="f88354ec482be09aeccd76a97bb75868"
 if [ -e $WORKDIR/$BIOSNAME ]
 then
-    echo "$BIOSNAME already exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    echo "$BIOSNAME already exists, checking if file is valid."
     CHECK_SUM
 else
     echo "$BIOSNAME does not exist."
@@ -126,7 +128,7 @@ BIOSNAME="32X_S_BIOS.BIN"
 CHECKSUM="7f041b6a55cd7423a6c08a219335269e"
 if [ -e $WORKDIR/$BIOSNAME ]
 then
-    echo "$BIOSNAME already exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    echo "$BIOSNAME already exists, checking if file is valid."
     CHECK_SUM
 else
     echo "$BIOSNAME does not exist."
@@ -148,7 +150,7 @@ BIOSNAME="5200.rom" ## The name of the file needed by emulators.
 CHECKSUM="281f20ea4320404ec820fb7ec0693b38" ## The checksum to be checked if file is valid.
 if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
-    echo "$BIOSNAME already exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    echo "$BIOSNAME already exists, checking if file is valid."
     CHECK_SUM
 else ## if flie exists then verify if checksum checks out.
 	echo "$BIOSNAME does not exist."
@@ -165,7 +167,7 @@ BIOSNAME="ATARIBAS.ROM" ## The name of the file needed by emulators.
 CHECKSUM="0bac0c6a50104045d902df4503a4c30b" ## The checksum to be checked if file is valid.
 if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
-	echo "$BIOSNAME already exists, checking $BIOSNAME if checksum is $CHECKSUM"
+	echo "$BIOSNAME already exists, checking if file is valid."
     CHECK_SUM
 else ## if flie exists then verify if checksum checks out.
     echo "$BIOSNAME does not exist."
@@ -182,7 +184,7 @@ BIOSNAME="ATARIOSA.ROM" ## The name of the file needed by emulators.
 CHECKSUM="eb1f32f5d9f382db1bbfb8d7f9cb343a" ## The checksum to be checked if file is valid.
 if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
-    echo "$BIOSNAME already exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    echo "$BIOSNAME already exists, checking if file is valid."
     CHECK_SUM
 else ## if flie exists then verify if checksum checks out.
 	echo "$BIOSNAME does not exist."
@@ -198,7 +200,7 @@ BIOSNAME="ATARIOSB.ROM" ## The name of the file needed by emulators.
 CHECKSUM="a3e8d617c95d08031fe1b20d541434b2" ## The checksum to be checked if file is valid.
 if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
-    echo "$BIOSNAME already exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    echo "$BIOSNAME already exists, checking if file is valid."
     CHECK_SUM
 else ## if flie exists then verify if checksum checks out.
     echo "$BIOSNAME does not exist."
@@ -214,7 +216,7 @@ BIOSNAME="ATARIXL.ROM" ## The name of the file needed by emulators.
 CHECKSUM="06daac977823773a3eea3422fd26a703" ## The checksum to be checked if file is valid.
 if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
-    echo "$BIOSNAME already exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    echo "$BIOSNAME already exists, checking if file is valid."
     CHECK_SUM
 else ## if flie exists then verify if checksum checks out.
 	echo "$BIOSNAME does not exist."
@@ -235,7 +237,7 @@ BIOSNAME="7800 BIOS (U).rom" ## The name of the file needed by emulators.
 CHECKSUM="0763f1ffb006ddbe32e52d497ee848ae" ## The checksum to be checked if file is valid.
 if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if file exists then verify if checksum checks out.
-    echo "$BIOSNAME already exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    echo "$BIOSNAME already exists, checking if file is valid."
     CHECK_SUM ## verrify and if valid copy to $BIOSDIR
 else ## if not then download, extract, copy to workdir and check for validity.
 	echo "$BIOSNAME does not exist."
@@ -258,7 +260,7 @@ BIOSNAME="CARTS.SHA" ## The name of the file needed by emulators.
 CHECKSUM="d6dedca1112ddfda94cc9b2e426b818b" ## The checksum to be checked if file is valid.
 if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if file exists then verify if checksum checks out.
-    echo "$BIOSNAME already exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    echo "$BIOSNAME already exists, checking if file is valid."
     CHECK_SUM ## verrify and if valid copy to $BIOSDIR
 else ## if not then download, extract, copy to workdir and check for validity.
 	echo "$BIOSNAME does not exist."
@@ -274,7 +276,23 @@ BIOSNAME="CYRILLIC.FNT" ## The name of the file needed by emulators.
 CHECKSUM="85b38e4128bbc300e675f55b278683a8" ## The checksum to be checked if file is valid.
 if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if file exists then verify if checksum checks out.
-    echo "$BIOSNAME already exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
+BIOSNAME="DISK.ROM" ## The name of the file needed by emulators.
+CHECKSUM="80dcd1ad1a4cf65d64b7ba10504e8190" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
     CHECK_SUM ## verrify and if valid copy to $BIOSDIR
 else ## if not then download, extract, copy to workdir and check for validity.
 	echo "$BIOSNAME does not exist."
@@ -292,9 +310,9 @@ fi
 #
 #	system:		bios:			hash:
 
-#10	MSX	CARTS.SHA	d6dedca1112ddfda94cc9b2e426b818b	
-#11	MSX	CYRILLIC.FNT	85b38e4128bbc300e675f55b278683a8	
-#12	MSX	DISK.ROM	80dcd1ad1a4cf65d64b7ba10504e8190	
+ #10	MSX	CARTS.SHA	d6dedca1112ddfda94cc9b2e426b818b	
+ #11	MSX	CYRILLIC.FNT	85b38e4128bbc300e675f55b278683a8	
+ #12	MSX	DISK.ROM	80dcd1ad1a4cf65d64b7ba10504e8190	
 #13	MSX	FMPAC.ROM	6f69cc8b5ed761b03afd78000dfb0e19	
 #14	MSX	FMPAC16.ROM	af8537262df8df267072f359399a7635	
 #15	MSX	ITALIC.FNT	c83e50e9f33b8dd893c414691822740d	
