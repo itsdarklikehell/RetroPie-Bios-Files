@@ -232,7 +232,7 @@ else ## if not then download, extract, copy to workdir and check for validity.
     MAKE_WORKDIR
     DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
     EXTRACTZIP ## Extract downoaded .zip file
-    mv $WORKDIR/$SYSNAME/7800.ROM $WORKDIR/"7800 BIOS (U).rom"
+    mv $WORKDIR/$SYSNAME/7800.ROM $WORKDIR/$SYSNAME/"7800 BIOS (U).rom"
     COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
     CHECK_SUM ## verrify and if valid copy to $BIOSDIR
 fi
