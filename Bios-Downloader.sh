@@ -518,12 +518,32 @@ else ## if not then download, extract, copy to workdir and check for validity.
 fi
 }
 
+TANDY_COLOR(){
+echo "Tandy Color Computer"
+SYSNAME="Tandy-Color-Computer" ##	Systemname for wich a workingdir is created. 
+LINK="http://www.colorcomputerarchive.com/coco/ROMs/XRoar/CoCo/BASIC_OS/bas13.rom"	## The link to download a file from.
+EXT="zip"	## The extention of the downloaded file.
+BIOSNAME="bas13.rom" ## The name of the file needed by emulators.
+CHECKSUM="c2fc43556eb6b7b25bdf5955bd9df825" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_FILE
+    #DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    #EXTRACTZIP ## Extract downoaded .zip file
+    #COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+}
+
 #
 #	LIST OF SYSTEM BIOS FILES WITH CHECKSUM AND DOWNLOADLINK (WIP):
 #
 #	system:		bios:			hash:
-
-#26	Tandy Color Computer	bas13.rom	c2fc43556eb6b7b25bdf5955bd9df825	 
 
 #27	Sega CD	bios_CD_E.bin	e66fa1dc5820d254611fdcdba0662372	 
 #28	Sega CD	bios_CD_J.bin	278a9397d192149e84e820ac621a8edd	 
@@ -604,8 +624,12 @@ fi
 #23	MSX	PAINTER.ROM	403cdea1cbd2bb24fae506941f8f655e	
 #24	MSX	RS232.ROM	279efd1eae0d358eecd4edc7d9adedf3	
 # LINK:	https://www.k3nny.fr/BIOS_Recalbox_v4.1.zip
+
 #25	TI-99/4A	TI-994A.ctg	412ecbf991edcb68edd0e76c2caa4a59
 # LINK: 	https://github.com/billzajac/ti99sim/blob/master/roms/TI-994A.dat
+
+#26	Tandy Color Computer	bas13.rom	c2fc43556eb6b7b25bdf5955bd9df825	 
+# LINK:	http://www.colorcomputerarchive.com/coco/ROMs/XRoar/CoCo/BASIC_OS/bas13.rom
 
 #EXAMPLE_SYSTEM 
 
@@ -614,6 +638,7 @@ fi
 #ATARI_7800
 #MSX
 TI994A
+TANDY_COLOR
 
 }
 ######## EXECUTION ########
