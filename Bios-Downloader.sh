@@ -269,6 +269,22 @@ else ## if not then download, extract, copy to workdir and check for validity.
     COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
     CHECK_SUM ## verrify and if valid copy to $BIOSDIR
 fi
+
+BIOSNAME="CYRILLIC.FNT" ## The name of the file needed by emulators.
+CHECKSUM="85b38e4128bbc300e675f55b278683a8" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
 }
 
 #
