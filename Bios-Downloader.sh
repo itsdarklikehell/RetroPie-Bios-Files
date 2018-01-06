@@ -216,11 +216,31 @@ else ## if flie exists then verify if checksum checks out.
 fi
 }
 
+ATARI_7800(){
+echo "Atari 7800"
+SYSNAME="Atari-7800" ##	Systemname for wich a workingdir is created. 
+LINK="http://www.romcollector.com/storage/emulators/mess/a7800.zip"	## The link to download a file from.
+EXT="zip"	## The extention of the downloaded file.
+BIOSNAME="7800 BIOS (U).rom" ## The name of the file needed by emulators.
+CHECKSUM="0763f1ffb006ddbe32e52d497ee848ae" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+}
+
 #
 #	LIST OF SYSTEM BIOS FILES WITH CHECKSUM AND DOWNLOADLINK (WIP):
 #
 #	system:		bios:			hash:
-#5	Atari 7800	7800 BIOS (U).rom	0763f1ffb006ddbe32e52d497ee848ae	 
 
 #10	MSX	CARTS.SHA	d6dedca1112ddfda94cc9b2e426b818b	
 #11	MSX	CYRILLIC.FNT	85b38e4128bbc300e675f55b278683a8	
@@ -279,11 +299,15 @@ fi
 #8	Atari 8-bit Series	ATARIOSB.ROM	a3e8d617c95d08031fe1b20d541434b2	 
 #9	Atari 8-bit Series	ATARIXL.ROM	06daac977823773a3eea3422fd26a703	 
 #	LINK:	http://marc-abramowitz.com/download/atari/OSRoms/
+#5	Atari 7800	7800 BIOS (U).rom	0763f1ffb006ddbe32e52d497ee848ae	 
+#	LINK:	http://www.romcollector.com/storage/emulators/mess/a7800.zip
+
 
 #EXAMPLE_SYSTEM 
 
 SEGA32X
 ATARI8BIT
+ATARI_7800
 
 }
 ######## EXECUTION ########
