@@ -241,8 +241,7 @@ else ## if not then download, extract, copy to workdir and check for validity.
 	echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
     DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
-    EXTRACTZIP ## Extract downoaded .zip file
-    mv $WORKDIR/$SYSNAME/7800.ROM $WORKDIR/"7800\ BIOS\ (U).rom" 
+    EXTRACTZIP ## Extract downoaded .zip file 
     COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
     CHECK_SUM ## verrify and if valid copy to $BIOSDIR
 fi
@@ -939,15 +938,77 @@ else ## if not then download, extract, copy to workdir and check for validity.
     CHECK_SUM ## verrify and if valid copy to $BIOSDIR
 fi
 }
+
+DRAGON32(){
+echo "Dragon-32"
+SYSNAME="Dragon-32" ##	Systemname for wich a workingdir is created. 
+LINK="http://www.roust-it.dk/coco/roms/d32V31.rom"	## The link to download a file from.
+EXT="zip"	## The extention of the downloaded file.
+
+BIOSNAME="d32.rom" ## The name of the file needed by emulators.
+CHECKSUM="fcd403db69f54290b51035d82f835e7b" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_FILE
+    #DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    #EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/d32V31.rom $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+}
+
+INTELLIVISION(){
+echo "Intellivision"
+SYSNAME="Intellivision" ##	Systemname for wich a workingdir is created. 
+LINK="http://jasonwilliams400com.startlogic.com/snor/weeds/Intellivision/$BIOSNAME"	## The link to download a file from.
+EXT="zip"	## The extention of the downloaded file.
+
+BIOSNAME="exec.bin" ## The name of the file needed by emulators.
+CHECKSUM="62e761035cb657903761800f4437b8af" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_FILE
+    #DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    #EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/d32V31.rom $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
+BIOSNAME="grom.bin" ## The name of the file needed by emulators.
+CHECKSUM="0cd5946c6473e42e8e4c2137785e427f" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_FILE
+    #DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    #EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/d32V31.rom $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
+}
+
 #
 #	LIST OF SYSTEM BIOS FILES WITH CHECKSUM AND DOWNLOADLINK (WIP):
 #
 #	system:		bios:			hash:
-
-#31	Dragon 32	d32.rom	3420b96031078a4ef408cad7bf21a33f	 
-
-#36	Intellivision	exec.bin	62e761035cb657903761800f4437b8af	 
-#38	Intellivision	grom.bin	0cd5946c6473e42e8e4c2137785e427f	 
 
 #43	TRS-80	level2.rom	ca74822ebc2803c6635a55116ecd9539	 
 
@@ -1022,6 +1083,13 @@ echo "####################################"
 #42	Amiga	kick31.rom	e40a5dfb3d017ba8779faba30cbd1c8e	 
 # LINK:	http://amigas.ru/amiftp/index.php?dir=AmiFTP/Amiga%20Kickstart%20Roms%20-%20Complete%20-%20TOSEC%20v0.04/KS-ROMs/&file=Kickstart%20v1.3%20rev%2034.5%20%281987%29%28Commodore%29%28A3000%29.rom
 
+#31	Dragon 32	d32.rom	3420b96031078a4ef408cad7bf21a33f	 
+# LINK:	http://www.roust-it.dk/coco/roms/d32V31.rom
+
+
+#36	Intellivision	exec.bin	62e761035cb657903761800f4437b8af	 
+#38	Intellivision	grom.bin	0cd5946c6473e42e8e4c2137785e427f	 
+
 }
 #EXAMPLE_SYSTEM 
 
@@ -1042,6 +1110,8 @@ ATARI_7800
 #PC_ENGINE
 #PSX
 #AMIGA
+DRAGON32
+INTELLIVISION
 
 DONE
 }
