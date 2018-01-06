@@ -247,6 +247,30 @@ else ## if not then download, extract, copy to workdir and check for validity.
 fi
 }
 
+MSX(){
+echo "Msx"
+SYSNAME="Msx" ##	Systemname for wich a workingdir is created. 
+
+LINK="https://www.k3nny.fr/BIOS_Recalbox_v4.1.zip"	## The link to download a file from.
+EXT="zip"	## The extention of the downloaded file.
+
+BIOSNAME="CARTS.SHA" ## The name of the file needed by emulators.
+CHECKSUM="d6dedca1112ddfda94cc9b2e426b818b" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+}
+
 #
 #	LIST OF SYSTEM BIOS FILES WITH CHECKSUM AND DOWNLOADLINK (WIP):
 #
@@ -315,9 +339,10 @@ fi
 
 #EXAMPLE_SYSTEM 
 
-SEGA32X
-ATARI8BIT
-ATARI_7800
+#SEGA32X
+#ATARI8BIT
+#ATARI_7800
+MSX
 
 }
 ######## EXECUTION ########
