@@ -221,7 +221,7 @@ echo "Atari 7800"
 SYSNAME="Atari-7800" ##	Systemname for wich a workingdir is created. 
 LINK="http://www.romcollector.com/storage/emulators/mess/a7800.zip"	## The link to download a file from.
 EXT="zip"	## The extention of the downloaded file.
-BIOSNAME="'7800 BIOS (U).rom'" ## The name of the file needed by emulators.
+BIOSNAME="7800 BIOS (U).rom" ## The name of the file needed by emulators.
 CHECKSUM="0763f1ffb006ddbe32e52d497ee848ae" ## The checksum to be checked if file is valid.
 if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if file exists then verify if checksum checks out.
@@ -232,7 +232,7 @@ else ## if not then download, extract, copy to workdir and check for validity.
     MAKE_WORKDIR
     DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
     EXTRACTZIP ## Extract downoaded .zip file
-    mv $WORKDIR/$SYSNAME/7800.ROM $WORKDIR/$BIOSNAME
+    mv $WORKDIR/$SYSNAME/7800.ROM $WORKDIR/7800\ BIOS\ (U).rom
     COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
     CHECK_SUM ## verrify and if valid copy to $BIOSDIR
 fi
