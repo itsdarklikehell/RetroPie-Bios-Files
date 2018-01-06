@@ -497,7 +497,7 @@ fi
 
 TI994A(){
 echo "TI-99/4A"
-SYSNAME="Example-System" ##	Systemname for wich a workingdir is created. 
+SYSNAME="TI-994A" ##	Systemname for wich a workingdir is created. 
 LINK="https://github.com/billzajac/ti99sim/blob/master/roms/TI-994A.dat"	## The link to download a file from.
 EXT="zip"	## The extention of the downloaded file.
 BIOSNAME="TI-994A.ctg" ## The name of the file needed by emulators.
@@ -512,8 +512,8 @@ else ## if not then download, extract, copy to workdir and check for validity.
     DOWNLOAD_FILE
     #DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
     #EXTRACTZIP ## Extract downoaded .zip file
-    cp $WORKDIR/$SYSNAME/TI-994A.dat $WORKDIR/$SYSNAME
-    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    #cp $WORKDIR/$SYSNAME/TI-994A.dat $WORKDIR/$SYSNAME
+    #COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
     CHECK_SUM ## verrify and if valid copy to $BIOSDIR
 fi
 }
