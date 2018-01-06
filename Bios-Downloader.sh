@@ -61,7 +61,6 @@ else
 	cp $WORKDIR/$BIOSNAME $BIOSDIR
 fi
 }
-
 }
 
 
@@ -303,6 +302,119 @@ else ## if not then download, extract, copy to workdir and check for validity.
     COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
     CHECK_SUM ## verrify and if valid copy to $BIOSDIR
 fi
+
+BIOSNAME="FMPAC.ROM" ## The name of the file needed by emulators.
+CHECKSUM="6f69cc8b5ed761b03afd78000dfb0e19" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
+BIOSNAME="FMPAC16.ROM" ## The name of the file needed by emulators.
+CHECKSUM="af8537262df8df267072f359399a7635" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
+BIOSNAME="ITALIC.FNT" ## The name of the file needed by emulators.
+CHECKSUM="c83e50e9f33b8dd893c414691822740d" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
+BIOSNAME="KANJI.ROM" ## The name of the file needed by emulators.
+CHECKSUM="febe8782b466d7c3b16de6d104826b34" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
+BIOSNAME="MSX.ROM" ## The name of the file needed by emulators.
+CHECKSUM="aa95aea2563cd5ec0a0919b44cc17d47" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
+BIOSNAME="MSX2.ROM" ## The name of the file needed by emulators.
+CHECKSUM="ec3a01c91f24fbddcbcab0ad301bc9ef" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
+BIOSNAME="MSX2EXT.ROM" ## The name of the file needed by emulators.
+CHECKSUM="2183c2aff17cf4297bdb496de78c2e8a" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
 }
 
 #
@@ -313,13 +425,13 @@ fi
  #10	MSX	CARTS.SHA	d6dedca1112ddfda94cc9b2e426b818b	
  #11	MSX	CYRILLIC.FNT	85b38e4128bbc300e675f55b278683a8	
  #12	MSX	DISK.ROM	80dcd1ad1a4cf65d64b7ba10504e8190	
-#13	MSX	FMPAC.ROM	6f69cc8b5ed761b03afd78000dfb0e19	
-#14	MSX	FMPAC16.ROM	af8537262df8df267072f359399a7635	
-#15	MSX	ITALIC.FNT	c83e50e9f33b8dd893c414691822740d	
-#16	MSX	KANJI.ROM	febe8782b466d7c3b16de6d104826b34	
-#17	MSX	MSX.ROM	aa95aea2563cd5ec0a0919b44cc17d47	
-#18	MSX	MSX2.ROM	ec3a01c91f24fbddcbcab0ad301bc9ef	
-#19	MSX	MSX2EXT.ROM	2183c2aff17cf4297bdb496de78c2e8a	
+ #13	MSX	FMPAC.ROM	6f69cc8b5ed761b03afd78000dfb0e19	
+ #14	MSX	FMPAC16.ROM	af8537262df8df267072f359399a7635	
+ #15	MSX	ITALIC.FNT	c83e50e9f33b8dd893c414691822740d	
+ #16	MSX	KANJI.ROM	febe8782b466d7c3b16de6d104826b34	
+ #17	MSX	MSX.ROM	aa95aea2563cd5ec0a0919b44cc17d47	
+ #18	MSX	MSX2.ROM	ec3a01c91f24fbddcbcab0ad301bc9ef	
+ #19	MSX	MSX2EXT.ROM	2183c2aff17cf4297bdb496de78c2e8a	
 #20	MSX	MSX2P.ROM	6d8c0ca64e726c82a4b726e9b01cdf1e	
 #21	MSX	MSX2PEXT.ROM	7c8243c71d8f143b2531f01afa6a05dc	
 #22	MSX	MSXDOS2.ROM	6418d091cd6907bbcf940324339e43bb	
