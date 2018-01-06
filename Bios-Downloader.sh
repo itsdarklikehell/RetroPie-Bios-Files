@@ -540,34 +540,180 @@ else ## if not then download, extract, copy to workdir and check for validity.
 fi
 }
 
+SEGA_CD(){
+echo "Sega CD"
+SYSNAME="Sega-CD" ##	Systemname for wich a workingdir is created. 
+LINK="http://fantasyanime.com/files/emulators/SegaCD_BIOS.zip"	## The link to download a file from.
+EXT="zip"	## The extention of the downloaded file.
+
+
+BIOSNAME="bios_CD_E.bin" ## The name of the file needed by emulators.
+CHECKSUM="e66fa1dc5820d254611fdcdba0662372" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
+BIOSNAME="bios_CD_J.bin" ## The name of the file needed by emulators.
+CHECKSUM="278a9397d192149e84e820ac621a8edd" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
+BIOSNAME="bios_CD_U.bin" ## The name of the file needed by emulators.
+CHECKSUM="2efd74e3232ff260e371b99f84024f7f" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
+}
+
+COLECO(){
+echo "Colecovision"
+SYSNAME="Dreamcast" ##	Systemname for wich a workingdir is created. 
+LINK="https://www.k3nny.fr/BIOS_Recalbox_v4.1.zip"	## The link to download a file from.
+EXT="zip"	## The extention of the downloaded file.
+
+BIOSNAME="coleco.rom" ## The name of the file needed by emulators.
+CHECKSUM="2c66f5911e5b42b8ebe113403548eee7" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+}
+
+DREAMCAST(){
+echo "Dreamcast"
+SYSNAME="Dreamcast" ##	Systemname for wich a workingdir is created. 
+LINK="https://www.k3nny.fr/BIOS_Recalbox_v4.1.zip"	## The link to download a file from.
+EXT="zip"	## The extention of the downloaded file.
+
+BIOSNAME="dc_boot.bin" ## The name of the file needed by emulators.
+CHECKSUM="e10c53c2f8b90bab96ead2d368858623" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
+BIOSNAME="dc_flash.bin" ## The name of the file needed by emulators.
+CHECKSUM="74e3f69c2bb92bc1fc5d9a53dcf6ffe2" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+}
+
+NINTENDO_FCDS(){
+echo "Nintendo Family Computer Disk System"
+SYSNAME="Nintendo-fcds" ##	Systemname for wich a workingdir is created. 
+LINK="https://www.k3nny.fr/BIOS_Recalbox_v4.1.zip"	## The link to download a file from.
+EXT="zip"	## The extention of the downloaded file.
+
+BIOSNAME="disksys.rom" ## The name of the file needed by emulators.
+CHECKSUM="ca30b50f880eb660a320674ed365ef7a" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+}
+
+GAMEBOY_ADVANCED(){
+echo "Nintendo Gameboy Advance"
+SYSNAME="Gameboy-Advance" ##	Systemname for wich a workingdir is created. 
+LINK="https://www.k3nny.fr/BIOS_Recalbox_v4.1.zip"	## The link to download a file from.
+EXT="zip"	## The extention of the downloaded file.
+
+BIOSNAME="gba_bios.bin" ## The name of the file needed by emulators.
+CHECKSUM="a860e8c0b6d573d191e4ec7db1b1e4f6" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+}
+
 #
 #	LIST OF SYSTEM BIOS FILES WITH CHECKSUM AND DOWNLOADLINK (WIP):
 #
 #	system:		bios:			hash:
 
-#27	Sega CD	bios_CD_E.bin	e66fa1dc5820d254611fdcdba0662372	 
-#28	Sega CD	bios_CD_J.bin	278a9397d192149e84e820ac621a8edd	 
-#29	Sega CD	bios_CD_U.bin	2efd74e3232ff260e371b99f84024f7f	 
-
-#30	Colecovision	coleco.rom	2c66f5911e5b42b8ebe113403548eee7	 
 
 #31	Dragon 32	d32.rom	3420b96031078a4ef408cad7bf21a33f	 
 
-#32	Dreamcast	dc_boot.bin	e10c53c2f8b90bab96ead2d368858623	 
-
-#33	Dreamcast	dc_flash.bin	74e3f69c2bb92bc1fc5d9a53dcf6ffe2	 
-
-#34	Nintendo Family Computer Disk System	disksys.rom	ca30b50f880eb660a320674ed365ef7a
-
-#35	Sega CD	eu_mcd2_9306.bin	d8b8b720dea6c6ba25c309ed633930f4	 
 
 #36	Intellivision	exec.bin	62e761035cb657903761800f4437b8af	 
-
-#37	Game Boy Advance	gba_bios.bin	a860e8c0b6d573d191e4ec7db1b1e4f6	 
-
 #38	Intellivision	grom.bin	0cd5946c6473e42e8e4c2137785e427f	 
 
-#39	Sega CD	jp_mcd1_9112.bin	bdeb4c47da613946d422d97d98b21cda	 
 
 #40	Amiga	kick13.rom	192d6d950d0ed3df8040b788502831c2	 
 #41	Amiga	kick20.rom	dc10d7bdd1b6f450773dfb558477c230	 
@@ -589,25 +735,30 @@ fi
 
 #51	PC Engine / TurboGrafx 16	syscard3.pce	ff1a674273fe3540ccef576376407d1d	 
 
-#52	Sega CD	us_scd2_9306.bin	854b9150240a198070150e4566ae1290	
 
+#35	Sega CD	eu_mcd2_9306.bin	d8b8b720dea6c6ba25c309ed633930f4	 
+#52	Sega CD	us_scd2_9306.bin	854b9150240a198070150e4566ae1290	
+#39	Sega CD	jp_mcd1_9112.bin	bdeb4c47da613946d422d97d98b21cda	 
+
+
+DONE(){
+echo "####################################"
+echo "all bios files have been checked and downloaded!"
+echo "####################################"
 ## DONE:
 
 #1	Sega 32x	32X_G_BIOS.BIN	6a5433f6a132a2b683635819a6dcf085
 #2	Sega 32x	32X_M_BIOS.BIN	f88354ec482be09aeccd76a97bb75868	 
 #3	Sega 32x	32X_S_BIOS.BIN	7f041b6a55cd7423a6c08a219335269e	 
 #	LINK:	http://50.7.92.186/ukIpalnq13Lasfp75BBaa/epforums/upload/2/3/4/5/2/192311740647317996.zip
-
 #4	Atari 8-bit Series	5200.rom	#281f20ea4320404ec820fb7ec0693b38
 #6	Atari 8-bit Series	ATARIBAS.ROM	0bac0c6a50104045d902df4503a4c30b	 
 #7	Atari 8-bit Series	ATARIOSA.ROM	eb1f32f5d9f382db1bbfb8d7f9cb343a	 
 #8	Atari 8-bit Series	ATARIOSB.ROM	a3e8d617c95d08031fe1b20d541434b2	 
 #9	Atari 8-bit Series	ATARIXL.ROM	06daac977823773a3eea3422fd26a703	 
 #	LINK:	http://marc-abramowitz.com/download/atari/OSRoms/
-
 #5	Atari 7800	7800 BIOS (U).rom	0763f1ffb006ddbe32e52d497ee848ae	 
 #	LINK:	http://www.romcollector.com/storage/emulators/mess/a7800.zip
-
 #10	MSX	CARTS.SHA	d6dedca1112ddfda94cc9b2e426b818b	
 #11	MSX	CYRILLIC.FNT	85b38e4128bbc300e675f55b278683a8	
 #12	MSX	DISK.ROM	80dcd1ad1a4cf65d64b7ba10504e8190	
@@ -624,22 +775,38 @@ fi
 #23	MSX	PAINTER.ROM	403cdea1cbd2bb24fae506941f8f655e	
 #24	MSX	RS232.ROM	279efd1eae0d358eecd4edc7d9adedf3	
 # LINK:	https://www.k3nny.fr/BIOS_Recalbox_v4.1.zip
-
 #25	TI-99/4A	TI-994A.ctg	412ecbf991edcb68edd0e76c2caa4a59
 # LINK: 	https://github.com/billzajac/ti99sim/blob/master/roms/TI-994A.dat
-
 #26	Tandy Color Computer	bas13.rom	c2fc43556eb6b7b25bdf5955bd9df825	 
 # LINK:	http://www.colorcomputerarchive.com/coco/ROMs/XRoar/CoCo/BASIC_OS/bas13.rom
+#27	Sega CD	bios_CD_E.bin	e66fa1dc5820d254611fdcdba0662372	 
+#28	Sega CD	bios_CD_J.bin	278a9397d192149e84e820ac621a8edd	 
+#29	Sega CD	bios_CD_U.bin	2efd74e3232ff260e371b99f84024f7f	 
+# LINK:	http://fantasyanime.com/files/emulators/SegaCD_BIOS.zip
 
+#32	Dreamcast	dc_boot.bin	e10c53c2f8b90bab96ead2d368858623	 
+#33	Dreamcast	dc_flash.bin	74e3f69c2bb92bc1fc5d9a53dcf6ffe2	 
+#30	Colecovision	coleco.rom	2c66f5911e5b42b8ebe113403548eee7	 
+#34	Nintendo Family Computer Disk System	disksys.rom	ca30b50f880eb660a320674ed365ef7a
+#37	Game Boy Advance	gba_bios.bin	a860e8c0b6d573d191e4ec7db1b1e4f6	 
+# LINK:	https://www.k3nny.fr/BIOS_Recalbox_v4.1.zip
+
+}
 #EXAMPLE_SYSTEM 
 
 #SEGA32X
 #ATARI8BIT
 #ATARI_7800
 #MSX
-TI994A
-TANDY_COLOR
+#TI994A
+#TANDY_COLOR
+SEGA_CD
+DREAMCAST
+COLECO
+NINTENDO_FCDS
+GAMEBOY_ADVANCED
 
+DONE
 }
 ######## EXECUTION ########
 CONFIGURE
