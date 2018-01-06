@@ -829,7 +829,7 @@ fi
 
 PSX(){
 echo "Sony Playstation"
-SYSNAME="Sony Playstation" ##	Systemname for wich a workingdir is created. 
+SYSNAME="Sony-Playstation" ##	Systemname for wich a workingdir is created. 
 LINK="https://www.k3nny.fr/BIOS_Recalbox_v4.1.zip"	## The link to download a file from.
 EXT="zip"	## The extention of the downloaded file.
 
