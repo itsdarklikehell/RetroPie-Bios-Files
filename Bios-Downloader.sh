@@ -689,7 +689,7 @@ else ## if not then download, extract, copy to workdir and check for validity.
     MAKE_WORKDIR
     DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
     EXTRACTZIP ## Extract downoaded .zip file
-    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    cp $WORKDIR/$SYSNAME/bios/dc_bios.bin $WORKDIR/$SYSNAME/$BIOSNAME
     COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
     CHECK_SUM ## verrify and if valid copy to $BIOSDIR
 fi
@@ -948,6 +948,7 @@ echo "####################################"
 
 #32	Dreamcast	dc_boot.bin	e10c53c2f8b90bab96ead2d368858623	 
 #33	Dreamcast	dc_flash.bin	74e3f69c2bb92bc1fc5d9a53dcf6ffe2	 
+
 #30	Colecovision	coleco.rom	2c66f5911e5b42b8ebe113403548eee7	 
 #34	Nintendo Family Computer Disk System	disksys.rom	ca30b50f880eb660a320674ed365ef7a
 #37	Game Boy Advance	gba_bios.bin	a860e8c0b6d573d191e4ec7db1b1e4f6	 
