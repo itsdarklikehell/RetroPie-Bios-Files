@@ -23,7 +23,7 @@ echo "downloading $BIOSNAME"
 echo "from $LINK"
 echo "to $WORKDIR"
 echo "as $BIOSNAME"
-wget -c $LINK -O $WORKDIR/$SYSNAME/$BIOSNAME
+wget -c $LINK -O $WORKDIR/$BIOSNAME
 }
 
 CHECK_SUM(){
@@ -143,7 +143,7 @@ then ## if not then download, extract, copy to workdir and check for validity.
     DOWNLOAD_FILE
     #EXTRACTZIP
     mv $WORKING_DIR/5200.ROM $WORKING_DIR/$BIOSNAME
-    COPY_BIOSNAME_WORKDIR
+    #COPY_BIOSNAME_WORKDIR
     CHECK_SUM
 else ## if flie exists then verify if checksum checks out.
 	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
@@ -159,7 +159,7 @@ then ## if not then download, extract, copy to workdir and check for validity.
     MAKE_WORKDIR
     DOWNLOAD_FILE
     #EXTRACTZIP
-    COPY_BIOSNAME_WORKDIR
+    #COPY_BIOSNAME_WORKDIR
     CHECK_SUM
 else ## if flie exists then verify if checksum checks out.
 	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
@@ -175,7 +175,7 @@ then ## if not then download, extract, copy to workdir and check for validity.
     MAKE_WORKDIR
     DOWNLOAD_FILE
     #EXTRACTZIP
-    COPY_BIOSNAME_WORKDIR
+    #COPY_BIOSNAME_WORKDIR
     CHECK_SUM
 else ## if flie exists then verify if checksum checks out.
 	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
@@ -191,7 +191,7 @@ then ## if not then download, extract, copy to workdir and check for validity.
     MAKE_WORKDIR
     DOWNLOAD_FILE
     #EXTRACTZIP
-    COPY_BIOSNAME_WORKDIR
+    #COPY_BIOSNAME_WORKDIR
     CHECK_SUM
 else ## if flie exists then verify if checksum checks out.
 	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
@@ -207,7 +207,7 @@ then ## if not then download, extract, copy to workdir and check for validity.
     MAKE_WORKDIR
     DOWNLOAD_FILE
     #EXTRACTZIP
-    COPY_BIOSNAME_WORKDIR
+    #COPY_BIOSNAME_WORKDIR
     CHECK_SUM
 else ## if flie exists then verify if checksum checks out.
 	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
