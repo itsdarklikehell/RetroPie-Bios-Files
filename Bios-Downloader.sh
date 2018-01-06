@@ -27,7 +27,12 @@ wget -c $LINK -O $WORKDIR/$BIOSNAME
 }
 
 CHECK_SUM(){
-md5sum $WORKDIR/$BIOSNAME | awk '{ print $1 }'
+if [[ $SYSNAME  = Atari-7800 ]]
+then
+	md5sum $WORKDIR/"7800 BIOS (U).rom" | awk '{ print $1 }'
+else
+	md5sum $WORKDIR/$BIOSNAME | awk '{ print $1 }'
+fi
 if [[ $1 = $CHECKSUM ]] ## checking if $1 is $CHECKSUM.
 then ## if not then download, extract, copy to workdir and check for validity.
     echo "The checksum of $BIOSNAME is $1 and is NOT the same as $CHECKSUM !"
