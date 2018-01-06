@@ -138,15 +138,15 @@ BIOSNAME="5200.rom" ## The name of the file needed by emulators.
 CHECKSUM="281f20ea4320404ec820fb7ec0693b38" ## The checksum to be checked if file is valid.
 if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
-    echo "$BIOSNAME does not exist."
+    echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM
+else ## if flie exists then verify if checksum checks out.
+	echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
     DOWNLOAD_FILE
     #EXTRACTZIP
     mv $WORKING_DIR/5200.ROM $WORKING_DIR/$BIOSNAME
     #COPY_BIOSNAME_WORKDIR
-    CHECK_SUM
-else ## if flie exists then verify if checksum checks out.
-	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
     CHECK_SUM
 fi
 
