@@ -11,13 +11,21 @@ MAKE_WORKDIR(){
 echo "making $WORKDIR/$SYSNAME/"
 mkdir -p $WORKDIR/$SYSNAME/
 }
-DOWNLOAD(){
-echo "downloading $BIOSFILE "
+DOWNLOAD_ZIP(){
+echo "downloading $BIOSNAME"
 echo "from $LINK"
 echo "to $WORKDIR/$SYSNAME"
 echo "as $SYSNAME.$EXT"
 wget -c $LINK -O $WORKDIR/$SYSNAME/$SYSNAME.$EXT
 }
+DOWNLOAD_FILE(){
+echo "downloading $BIOSNAME"
+echo "from $LINK"
+echo "to $WORKDIR"
+echo "as $BIOSNAME"
+wget -c $LINK -O $WORKDIR/$SYSNAME/$BIOSNAME
+}
+
 CHECK_SUM(){
 md5sum $WORKDIR/$BIOSNAME | awk '{ print $1 }'
 if [[ $1 = $CHECKSUM ]] ## checking if $1 is $CHECKSUM.
@@ -58,13 +66,13 @@ if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
     echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
-    DOWNLOAD
-    EXTRACTZIP
-    COPY_BIOSNAME_WORKDIR
-    CHECK_SUM
-else ## if flie exists then verify if checksum checks out.
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if file exists then verify if checksum checks out.
 	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
-    CHECK_SUM
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
 fi
 }
 
@@ -80,7 +88,7 @@ if [ -e $WORKING_DIR/$BIOSNAME ]
 then
     echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
-    DOWNLOAD
+    DOWNLOAD_ZIP
     EXTRACTZIP
     COPY_BIOSNAME_WORKDIR
     CHECK_SUM
@@ -95,7 +103,7 @@ if [ -e $WORKING_DIR/$BIOSNAME ]
 then
     echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
-    DOWNLOAD
+    DOWNLOAD_ZIP
     EXTRACTZIP
     COPY_BIOSNAME_WORKDIR
     CHECK_SUM
@@ -110,7 +118,7 @@ if [ -e $WORKING_DIR/$BIOSNAME ]
 then
     echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
-    DOWNLOAD
+    DOWNLOAD_ZIP
     EXTRACTZIP
     COPY_BIOSNAME_WORKDIR
     CHECK_SUM
@@ -120,17 +128,99 @@ else
 fi
 }
 
+ATARI8BIT(){
+echo "Atari 8-bit Series"
+SYSNAME="Atari-8-bit-Series" ##	Systemname for wich a workingdir is created. 
+LINK="http://marc-abramowitz.com/download/atari/OSRoms/5200.ROM"	## The link to download a file from.
+EXT=".rom"	## The extention of the downloaded file.
+
+BIOSNAME="5200.rom" ## The name of the file needed by emulators.
+CHECKSUM="281f20ea4320404ec820fb7ec0693b38" ## The checksum to be checked if file is valid.
+if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
+then ## if not then download, extract, copy to workdir and check for validity.
+    echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_FILE
+    #EXTRACTZIP
+    mv $WORKING_DIR/5200.ROM $WORKING_DIR/$BIOSNAME
+    COPY_BIOSNAME_WORKDIR
+    CHECK_SUM
+else ## if flie exists then verify if checksum checks out.
+	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM
+fi
+
+LINK="http://marc-abramowitz.com/download/atari/OSRoms/ATARIBAS.ROM"
+BIOSNAME="ATARIBAS.ROM" ## The name of the file needed by emulators.
+CHECKSUM="0bac0c6a50104045d902df4503a4c30b" ## The checksum to be checked if file is valid.
+if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
+then ## if not then download, extract, copy to workdir and check for validity.
+    echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP
+    #EXTRACTZIP
+    COPY_BIOSNAME_WORKDIR
+    CHECK_SUM
+else ## if flie exists then verify if checksum checks out.
+	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM
+fi
+
+LINK="http://marc-abramowitz.com/download/atari/OSRoms/ATARIOSA.ROM"
+BIOSNAME="ATARIOSA.ROM" ## The name of the file needed by emulators.
+CHECKSUM="eb1f32f5d9f382db1bbfb8d7f9cb343a" ## The checksum to be checked if file is valid.
+if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
+then ## if not then download, extract, copy to workdir and check for validity.
+    echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP
+    #EXTRACTZIP
+    COPY_BIOSNAME_WORKDIR
+    CHECK_SUM
+else ## if flie exists then verify if checksum checks out.
+	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM
+fi
+
+LINK="http://marc-abramowitz.com/download/atari/OSRoms/ATARIOSB.ROM"
+BIOSNAME="ATARIOSB.ROM" ## The name of the file needed by emulators.
+CHECKSUM="a3e8d617c95d08031fe1b20d541434b2" ## The checksum to be checked if file is valid.
+if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
+then ## if not then download, extract, copy to workdir and check for validity.
+    echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP
+    #EXTRACTZIP
+    COPY_BIOSNAME_WORKDIR
+    CHECK_SUM
+else ## if flie exists then verify if checksum checks out.
+	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM
+fi
+
+LINK="http://marc-abramowitz.com/download/atari/OSRoms/ATARIXL.ROM"
+BIOSNAME="ATARIXL.ROM" ## The name of the file needed by emulators.
+CHECKSUM="06daac977823773a3eea3422fd26a703" ## The checksum to be checked if file is valid.
+if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
+then ## if not then download, extract, copy to workdir and check for validity.
+    echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP
+    #EXTRACTZIP
+    COPY_BIOSNAME_WORKDIR
+    CHECK_SUM
+else ## if flie exists then verify if checksum checks out.
+	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM
+fi
+}
 
 #
 #	LIST OF SYSTEM BIOS FILES WITH CHECKSUM AND DOWNLOADLINK (WIP):
 #
 #	system:		bios:			hash:
-#4	Atari 8-bit Series	5200.rom	#281f20ea4320404ec820fb7ec0693b38
 #5	Atari 7800	7800 BIOS (U).rom	0763f1ffb006ddbe32e52d497ee848ae	 
-#6	Atari 8-bit Series	ATARIBAS.ROM	0bac0c6a50104045d902df4503a4c30b	 
-#7	Atari 8-bit Series	ATARIOSA.ROM	eb1f32f5d9f382db1bbfb8d7f9cb343a	 
-#8	Atari 8-bit Series	ATARIOSB.ROM	a3e8d617c95d08031fe1b20d541434b2	 
-#9	Atari 8-bit Series	ATARIXL.ROM	06daac977823773a3eea3422fd26a703	 
+
 #10	MSX	CARTS.SHA	d6dedca1112ddfda94cc9b2e426b818b	
 #11	MSX	CYRILLIC.FNT	85b38e4128bbc300e675f55b278683a8	
 #12	MSX	DISK.ROM	80dcd1ad1a4cf65d64b7ba10504e8190	
@@ -146,6 +236,7 @@ fi
 #22	MSX	MSXDOS2.ROM	6418d091cd6907bbcf940324339e43bb	
 #23	MSX	PAINTER.ROM	403cdea1cbd2bb24fae506941f8f655e	
 #24	MSX	RS232.ROM	279efd1eae0d358eecd4edc7d9adedf3	
+
 #25	TI-99/4A	TI-994A.ctg	412ecbf991edcb68edd0e76c2caa4a59	 
 #26	Tandy Color Computer	bas13.rom	c2fc43556eb6b7b25bdf5955bd9df825	 
 #27	Sega CD	bios_CD_E.bin	e66fa1dc5820d254611fdcdba0662372	 
@@ -181,10 +272,16 @@ fi
 #2	Sega 32x	32X_M_BIOS.BIN	f88354ec482be09aeccd76a97bb75868	 
 #3	Sega 32x	32X_S_BIOS.BIN	7f041b6a55cd7423a6c08a219335269e	 
 #	LINK:	http://50.7.92.186/ukIpalnq13Lasfp75BBaa/epforums/upload/2/3/4/5/2/192311740647317996.zip
-
+#4	Atari 8-bit Series	5200.rom	#281f20ea4320404ec820fb7ec0693b38
+#6	Atari 8-bit Series	ATARIBAS.ROM	0bac0c6a50104045d902df4503a4c30b	 
+#7	Atari 8-bit Series	ATARIOSA.ROM	eb1f32f5d9f382db1bbfb8d7f9cb343a	 
+#8	Atari 8-bit Series	ATARIOSB.ROM	a3e8d617c95d08031fe1b20d541434b2	 
+#9	Atari 8-bit Series	ATARIXL.ROM	06daac977823773a3eea3422fd26a703	 
+#	LINK:	http://marc-abramowitz.com/download/atari/OSRoms/
 
 #EXAMPLE_SYSTEM 
 SEGA32X
+ATARI8BIT
 
 }
 ######## EXECUTION ########
