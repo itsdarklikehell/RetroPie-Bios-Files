@@ -221,7 +221,7 @@ echo "Atari 7800"
 SYSNAME="Atari-7800" ##	Systemname for wich a workingdir is created. 
 LINK="http://www.romcollector.com/storage/emulators/mess/a7800.zip"	## The link to download a file from.
 EXT="zip"	## The extention of the downloaded file.
-BIOSNAME="7800\ BIOS\ (U).rom" ## The name of the file needed by emulators.
+BIOSNAME="'7800 BIOS (U).rom'" ## The name of the file needed by emulators.
 CHECKSUM="0763f1ffb006ddbe32e52d497ee848ae" ## The checksum to be checked if file is valid.
 if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if file exists then verify if checksum checks out.
