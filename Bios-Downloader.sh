@@ -157,7 +157,7 @@ if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
     echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
-    DOWNLOAD_ZIP
+    DOWNLOAD_FILE
     #EXTRACTZIP
     COPY_BIOSNAME_WORKDIR
     CHECK_SUM
@@ -173,7 +173,7 @@ if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
     echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
-    DOWNLOAD_ZIP
+    DOWNLOAD_FILE
     #EXTRACTZIP
     COPY_BIOSNAME_WORKDIR
     CHECK_SUM
@@ -189,7 +189,7 @@ if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
     echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
-    DOWNLOAD_ZIP
+    DOWNLOAD_FILE
     #EXTRACTZIP
     COPY_BIOSNAME_WORKDIR
     CHECK_SUM
@@ -205,7 +205,7 @@ if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
     echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
-    DOWNLOAD_ZIP
+    DOWNLOAD_FILE
     #EXTRACTZIP
     COPY_BIOSNAME_WORKDIR
     CHECK_SUM
@@ -280,7 +280,8 @@ fi
 #	LINK:	http://marc-abramowitz.com/download/atari/OSRoms/
 
 #EXAMPLE_SYSTEM 
-SEGA32X
+
+#SEGA32X
 ATARI8BIT
 
 }
