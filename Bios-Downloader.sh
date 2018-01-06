@@ -591,12 +591,67 @@ else ## if not then download, extract, copy to workdir and check for validity.
     COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
     CHECK_SUM ## verrify and if valid copy to $BIOSDIR
 fi
+}
+
+SEGA_CD2(){
+echo "Sega-CD2"
+SYSNAME="Sega-CD2" ##	Systemname for wich a workingdir is created. 
+LINK="https://www.k3nny.fr/BIOS_Recalbox_v4.1.zip"	## The link to download a file from.
+EXT="zip"	## The extention of the downloaded file.
+
+BIOSNAME="eu_mcd2_9306.bin" ## The name of the file needed by emulators.
+CHECKSUM="d8b8b720dea6c6ba25c309ed633930f4" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
+BIOSNAME="us_scd2_9306.bin" ## The name of the file needed by emulators.
+CHECKSUM="854b9150240a198070150e4566ae1290" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
+BIOSNAME="jp_mcd1_9112.bin" ## The name of the file needed by emulators.
+CHECKSUM="bdeb4c47da613946d422d97d98b21cda" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
 
 }
 
 COLECO(){
 echo "Colecovision"
-SYSNAME="Dreamcast" ##	Systemname for wich a workingdir is created. 
+SYSNAME="Colecovision" ##	Systemname for wich a workingdir is created. 
 LINK="https://www.k3nny.fr/BIOS_Recalbox_v4.1.zip"	## The link to download a file from.
 EXT="zip"	## The extention of the downloaded file.
 
@@ -702,18 +757,140 @@ else ## if not then download, extract, copy to workdir and check for validity.
 fi
 }
 
+LYNX(){
+echo "Atari-Lynx"
+SYSNAME="Atari-Lynx" ##	Systemname for wich a workingdir is created. 
+LINK="https://www.k3nny.fr/BIOS_Recalbox_v4.1.zip"	## The link to download a file from.
+EXT="zip"	## The extention of the downloaded file.
+
+BIOSNAME="lynxboot.img" ## The name of the file needed by emulators.
+CHECKSUM="fcd403db69f54290b51035d82f835e7b" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+}
+
+VIDEOPAC-ODYSSEY(){
+echo "Videopac / Odyssey 2"
+SYSNAME="Videopac-Odyssey-2" ##	Systemname for wich a workingdir is created. 
+LINK="https://www.k3nny.fr/BIOS_Recalbox_v4.1.zip"	## The link to download a file from.
+EXT="zip"	## The extention of the downloaded file.
+
+BIOSNAME="o2rom.bin" ## The name of the file needed by emulators.
+CHECKSUM="562d5ebf9e030a40d6fabfc2f33139fd" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+}
+
+PC_ENGINE(){
+echo "PC Engine / TurboGrafx 16"
+SYSNAME="PC-Engine-TurboGrafx-16" ##	Systemname for wich a workingdir is created. 
+LINK="https://www.k3nny.fr/BIOS_Recalbox_v4.1.zip"	## The link to download a file from.
+EXT="zip"	## The extention of the downloaded file.
+
+BIOSNAME="syscard3.pce" ## The name of the file needed by emulators.
+CHECKSUM="ff1a674273fe3540ccef576376407d1d" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
+}
+
+PSX(){
+echo "Sony Playstation"
+SYSNAME="Sony Playstation" ##	Systemname for wich a workingdir is created. 
+LINK="https://www.k3nny.fr/BIOS_Recalbox_v4.1.zip"	## The link to download a file from.
+EXT="zip"	## The extention of the downloaded file.
+
+BIOSNAME="scph5500.bin" ## The name of the file needed by emulators.
+CHECKSUM="8dd7d5296a650fac7319bce665a6a53c" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
+BIOSNAME="scph5501.bin" ## The name of the file needed by emulators.
+CHECKSUM="924e392ed05558ffdb115408c263dccf" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
+BIOSNAME="scph5502.bin" ## The name of the file needed by emulators.
+CHECKSUM="e56ec1b027e2fe8a49217d9678f7f6bb" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    EXTRACTZIP ## Extract downoaded .zip file
+    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+}
+
 #
 #	LIST OF SYSTEM BIOS FILES WITH CHECKSUM AND DOWNLOADLINK (WIP):
 #
 #	system:		bios:			hash:
 
-
 #31	Dragon 32	d32.rom	3420b96031078a4ef408cad7bf21a33f	 
-
 
 #36	Intellivision	exec.bin	62e761035cb657903761800f4437b8af	 
 #38	Intellivision	grom.bin	0cd5946c6473e42e8e4c2137785e427f	 
-
 
 #40	Amiga	kick13.rom	192d6d950d0ed3df8040b788502831c2	 
 #41	Amiga	kick20.rom	dc10d7bdd1b6f450773dfb558477c230	 
@@ -721,24 +898,9 @@ fi
 
 #43	TRS-80	level2.rom	ca74822ebc2803c6635a55116ecd9539	 
 
-#44	Lynx	lynxboot.img	fcd403db69f54290b51035d82f835e7b	 
-
-#45	Videopac / Odyssey 2	o2rom.bin	562d5ebf9e030a40d6fabfc2f33139fd	 
-
 #46	Panasonic 3do	panafz10.bin	51f2f43ae2f3508a14d9f56597e2d3ce	 
 
 #47	Sega Saturn	saturn_bios.bin	af5828fdff51384f99b3c4926be27762	 
-
-#48	PSX	scph5500.bin	8dd7d5296a650fac7319bce665a6a53c	 
-#49	PSX	scph5501.bin	924e392ed05558ffdb115408c263dccf	 
-#50	PSX	scph5502.bin	e56ec1b027e2fe8a49217d9678f7f6bb	 
-
-#51	PC Engine / TurboGrafx 16	syscard3.pce	ff1a674273fe3540ccef576376407d1d	 
-
-
-#35	Sega CD	eu_mcd2_9306.bin	d8b8b720dea6c6ba25c309ed633930f4	 
-#52	Sega CD	us_scd2_9306.bin	854b9150240a198070150e4566ae1290	
-#39	Sega CD	jp_mcd1_9112.bin	bdeb4c47da613946d422d97d98b21cda	 
 
 
 DONE(){
@@ -790,21 +952,36 @@ echo "####################################"
 #34	Nintendo Family Computer Disk System	disksys.rom	ca30b50f880eb660a320674ed365ef7a
 #37	Game Boy Advance	gba_bios.bin	a860e8c0b6d573d191e4ec7db1b1e4f6	 
 # LINK:	https://www.k3nny.fr/BIOS_Recalbox_v4.1.zip
+#35	Sega CD	eu_mcd2_9306.bin	d8b8b720dea6c6ba25c309ed633930f4	 
+#52	Sega CD	us_scd2_9306.bin	854b9150240a198070150e4566ae1290	
+#39	Sega CD	jp_mcd1_9112.bin	bdeb4c47da613946d422d97d98b21cda	 
+#44	Lynx	lynxboot.img	fcd403db69f54290b51035d82f835e7b	 
+#45	Videopac / Odyssey 2	o2rom.bin	562d5ebf9e030a40d6fabfc2f33139fd	 
+#51	PC Engine / TurboGrafx 16	syscard3.pce	ff1a674273fe3540ccef576376407d1d	 
+
+#48	PSX	scph5500.bin	8dd7d5296a650fac7319bce665a6a53c	 
+#49	PSX	scph5501.bin	924e392ed05558ffdb115408c263dccf	 
+#50	PSX	scph5502.bin	e56ec1b027e2fe8a49217d9678f7f6bb	 
 
 }
 #EXAMPLE_SYSTEM 
 
-#SEGA32X
-#ATARI8BIT
-#ATARI_7800
-#MSX
-#TI994A
-#TANDY_COLOR
+SEGA32X
+ATARI8BIT
+ATARI_7800
+MSX
+TI994A
+TANDY_COLOR
 SEGA_CD
+SEGA_CD2
 DREAMCAST
 COLECO
 NINTENDO_FCDS
 GAMEBOY_ADVANCED
+LYNX
+VIDEOPAC-ODYSSEY
+PC_ENGINE
+PSX
 
 DONE
 }
