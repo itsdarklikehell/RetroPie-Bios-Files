@@ -49,11 +49,11 @@ unzip $WORKDIR/$SYSNAME/$SYSNAME.$EXT -d $WORKDIR/$SYSNAME
 #rm $WORKDIR/$SYSNAME/$SYSNAME.$EXT
 }
 COPY_BIOSNAME_WORKDIR(){
-echo "copy new $BIOSNAME to $WORKDIR"
+echo "Copying $BIOSNAME to $WORKDIR"
 cp $WORKDIR/$SYSNAME/*.* $WORKDIR
 }
 COPY_BIOSNAME_BIOSDIR(){
-echo "Copying new $BIOSNAME with verrified checksum $CHECKSUM to $BIOSDIR"
+echo "Copying $BIOSNAME with verrified checksum $CHECKSUM to $BIOSDIR"
 if [[ $SYSNAME  = Atari-7800 ]]
 then 
 	mv $WORKDIR/$SYSNAME/7800.ROM $WORKDIR/"7800 BIOS (U).rom"
