@@ -6,7 +6,7 @@ CONFIGURE(){
 echo "configuring working directories and copying bios files allready present in ~/RetroPie/BIOS directory to working directory"
 WORKDIR=~/RetroPie-Bios-Files/BIOS
 BIOSDIR=~/RetroPie/BIOS
-cp -R $BIOSDIR $WORKDIR
+#cp -R $BIOSDIR $WORKDIR
 MAKE_WORKDIR(){
 echo "making $WORKDIR/$SYSNAME/"
 mkdir -p $WORKDIR/$SYSNAME/
@@ -282,7 +282,7 @@ fi
 
 #EXAMPLE_SYSTEM 
 
-#SEGA32X
+SEGA32X
 ATARI8BIT
 
 }
