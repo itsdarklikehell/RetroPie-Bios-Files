@@ -37,7 +37,7 @@ if [[ $1 = $CHECKSUM ]] ## checking if $1 is $CHECKSUM.
 then ## if not then download, extract, copy to workdir and check for validity.
     echo "The checksum of $BIOSNAME is NOT the same as $CHECKSUM !"
 else ## if flie exists then verify if checksum checks out.
-	echo "The checksum of $BIOSNAME is is eaqual to $CHECKSUM."
+	echo "The checksum of $BIOSNAME is eaqual to $CHECKSUM."
     COPY_BIOSNAME_BIOSDIR
 fi
 }
