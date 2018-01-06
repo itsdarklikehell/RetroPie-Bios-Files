@@ -145,7 +145,7 @@ else ## if flie exists then verify if checksum checks out.
     MAKE_WORKDIR
     DOWNLOAD_FILE
     #EXTRACTZIP
-    mv $WORKING_DIR/5200.ROM $WORKING_DIR/$BIOSNAME
+    mv $WORKDIR/5200.ROM $WORKDIR/$BIOSNAME
     #COPY_BIOSNAME_WORKDIR
     CHECK_SUM
 fi
@@ -155,15 +155,16 @@ BIOSNAME="ATARIBAS.ROM" ## The name of the file needed by emulators.
 CHECKSUM="0bac0c6a50104045d902df4503a4c30b" ## The checksum to be checked if file is valid.
 if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
+	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM
+else ## if flie exists then verify if checksum checks out.
     echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
     DOWNLOAD_FILE
     #EXTRACTZIP
     #COPY_BIOSNAME_WORKDIR
     CHECK_SUM
-else ## if flie exists then verify if checksum checks out.
-	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
-    CHECK_SUM
+
 fi
 
 LINK="http://marc-abramowitz.com/download/atari/OSRoms/ATARIOSA.ROM"
@@ -171,14 +172,14 @@ BIOSNAME="ATARIOSA.ROM" ## The name of the file needed by emulators.
 CHECKSUM="eb1f32f5d9f382db1bbfb8d7f9cb343a" ## The checksum to be checked if file is valid.
 if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
-    echo "$BIOSNAME does not exist."
+    echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM
+else ## if flie exists then verify if checksum checks out.
+	echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
     DOWNLOAD_FILE
     #EXTRACTZIP
     #COPY_BIOSNAME_WORKDIR
-    CHECK_SUM
-else ## if flie exists then verify if checksum checks out.
-	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
     CHECK_SUM
 fi
 
@@ -187,14 +188,14 @@ BIOSNAME="ATARIOSB.ROM" ## The name of the file needed by emulators.
 CHECKSUM="a3e8d617c95d08031fe1b20d541434b2" ## The checksum to be checked if file is valid.
 if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
+    echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM
+else ## if flie exists then verify if checksum checks out.
     echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
     DOWNLOAD_FILE
     #EXTRACTZIP
     #COPY_BIOSNAME_WORKDIR
-    CHECK_SUM
-else ## if flie exists then verify if checksum checks out.
-	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
     CHECK_SUM
 fi
 
@@ -203,14 +204,14 @@ BIOSNAME="ATARIXL.ROM" ## The name of the file needed by emulators.
 CHECKSUM="06daac977823773a3eea3422fd26a703" ## The checksum to be checked if file is valid.
 if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
-    echo "$BIOSNAME does not exist."
+    echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM
+else ## if flie exists then verify if checksum checks out.
+	echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
     DOWNLOAD_FILE
     #EXTRACTZIP
     #COPY_BIOSNAME_WORKDIR
-    CHECK_SUM
-else ## if flie exists then verify if checksum checks out.
-	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
     CHECK_SUM
 fi
 }
