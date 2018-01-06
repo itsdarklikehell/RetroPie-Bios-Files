@@ -62,7 +62,7 @@ LINK="http//example.link"	## The link to download a file from.
 EXT="zip"	## The extention of the downloaded file.
 BIOSNAME="examplebios.rom" ## The name of the file needed by emulators.
 CHECKSUM="somechecksumnumber" ## The checksum to be checked if file is valid.
-if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
     echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
@@ -84,7 +84,7 @@ EXT="zip"
 
 BIOSNAME="32X_G_BIOS.BIN"
 CHECKSUM="6a5433f6a132a2b683635819a6dcf085"
-if [ -e $WORKING_DIR/$BIOSNAME ]
+if [ -e $WORKDIR/$BIOSNAME ]
 then
     echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
@@ -99,7 +99,7 @@ fi
 
 BIOSNAME="32X_M_BIOS.BIN"
 CHECKSUM="f88354ec482be09aeccd76a97bb75868"
-if [ -e $WORKING_DIR/$BIOSNAME ]
+if [ -e $WORKDIR/$BIOSNAME ]
 then
     echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
@@ -114,7 +114,7 @@ fi
 
 BIOSNAME="32X_S_BIOS.BIN"
 CHECKSUM="7f041b6a55cd7423a6c08a219335269e"
-if [ -e $WORKING_DIR/$BIOSNAME ]
+if [ -e $WORKDIR/$BIOSNAME ]
 then
     echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
@@ -136,7 +136,7 @@ EXT=".rom"	## The extention of the downloaded file.
 
 BIOSNAME="5200.rom" ## The name of the file needed by emulators.
 CHECKSUM="281f20ea4320404ec820fb7ec0693b38" ## The checksum to be checked if file is valid.
-if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
     echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
     CHECK_SUM
@@ -153,7 +153,7 @@ fi
 LINK="http://marc-abramowitz.com/download/atari/OSRoms/ATARIBAS.ROM"
 BIOSNAME="ATARIBAS.ROM" ## The name of the file needed by emulators.
 CHECKSUM="0bac0c6a50104045d902df4503a4c30b" ## The checksum to be checked if file is valid.
-if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
 	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
     CHECK_SUM
@@ -170,7 +170,7 @@ fi
 LINK="http://marc-abramowitz.com/download/atari/OSRoms/ATARIOSA.ROM"
 BIOSNAME="ATARIOSA.ROM" ## The name of the file needed by emulators.
 CHECKSUM="eb1f32f5d9f382db1bbfb8d7f9cb343a" ## The checksum to be checked if file is valid.
-if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
     echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
     CHECK_SUM
@@ -186,7 +186,7 @@ fi
 LINK="http://marc-abramowitz.com/download/atari/OSRoms/ATARIOSB.ROM"
 BIOSNAME="ATARIOSB.ROM" ## The name of the file needed by emulators.
 CHECKSUM="a3e8d617c95d08031fe1b20d541434b2" ## The checksum to be checked if file is valid.
-if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
     echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
     CHECK_SUM
@@ -202,7 +202,7 @@ fi
 LINK="http://marc-abramowitz.com/download/atari/OSRoms/ATARIXL.ROM"
 BIOSNAME="ATARIXL.ROM" ## The name of the file needed by emulators.
 CHECKSUM="06daac977823773a3eea3422fd26a703" ## The checksum to be checked if file is valid.
-if [ -e $WORKING_DIR/$BIOSNAME ] ## checking if file is present.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if not then download, extract, copy to workdir and check for validity.
     echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
     CHECK_SUM
