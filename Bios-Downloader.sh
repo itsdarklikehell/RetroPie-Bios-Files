@@ -63,15 +63,15 @@ EXT="zip"	## The extention of the downloaded file.
 BIOSNAME="examplebios.rom" ## The name of the file needed by emulators.
 CHECKSUM="somechecksumnumber" ## The checksum to be checked if file is valid.
 if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
-then ## if not then download, extract, copy to workdir and check for validity.
-    echo "$BIOSNAME does not exist."
+then ## if file exists then verify if checksum checks out.
+    echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
     DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
     EXTRACTZIP ## Extract downoaded .zip file
     COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
-    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
-else ## if file exists then verify if checksum checks out.
-	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
     CHECK_SUM ## verrify and if valid copy to $BIOSDIR
 fi
 }
@@ -86,14 +86,14 @@ BIOSNAME="32X_G_BIOS.BIN"
 CHECKSUM="6a5433f6a132a2b683635819a6dcf085"
 if [ -e $WORKDIR/$BIOSNAME ]
 then
-    echo "$BIOSNAME does not exist."
+    echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM
+else
+	echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
     DOWNLOAD_ZIP
     EXTRACTZIP
     COPY_BIOSNAME_WORKDIR
-    CHECK_SUM
-else
-	echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
     CHECK_SUM
 fi
 
@@ -101,14 +101,14 @@ BIOSNAME="32X_M_BIOS.BIN"
 CHECKSUM="f88354ec482be09aeccd76a97bb75868"
 if [ -e $WORKDIR/$BIOSNAME ]
 then
+    echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM
+else
     echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
     DOWNLOAD_ZIP
     EXTRACTZIP
     COPY_BIOSNAME_WORKDIR
-    CHECK_SUM
-else
-    echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
     CHECK_SUM
 fi
 
@@ -116,14 +116,14 @@ BIOSNAME="32X_S_BIOS.BIN"
 CHECKSUM="7f041b6a55cd7423a6c08a219335269e"
 if [ -e $WORKDIR/$BIOSNAME ]
 then
+    echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
+    CHECK_SUM
+else
     echo "$BIOSNAME does not exist."
     MAKE_WORKDIR
     DOWNLOAD_ZIP
     EXTRACTZIP
     COPY_BIOSNAME_WORKDIR
-    CHECK_SUM
-else
-    echo "Exists, checking $BIOSNAME if checksum is $CHECKSUM"
     CHECK_SUM
 fi
 }
