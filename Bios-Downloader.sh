@@ -43,11 +43,16 @@ unzip $WORKDIR/$SYSNAME/$SYSNAME.$EXT -d $WORKDIR/$SYSNAME
 }
 COPY_BIOSNAME_WORKDIR(){
 echo "copy new $BIOSNAME to $WORKDIR"
-cp $WORKDIR/$SYSNAME/$BIOSNAME $WORKDIR
+cp $WORKDIR/$SYSNAME/*.* $WORKDIR
 }
 COPY_BIOSNAME_BIOSDIR(){
 echo "Copying $BIOSNAME with verrified checksum $CHECKSUM to $BIOSDIR"
-cp $WORKDIR/$BIOSNAME $BIOSDIR
+if [[ $SYSNAME  = Atari-7800 ]]
+then 
+	mv $WORKDIR/$SYSNAME/7800.ROM $WORKDIR/"7800 BIOS (U).rom"
+else
+	cp $WORKDIR/$BIOSNAME $BIOSDIR
+fi
 }
 
 }
@@ -232,8 +237,7 @@ else ## if not then download, extract, copy to workdir and check for validity.
     MAKE_WORKDIR
     DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
     EXTRACTZIP ## Extract downoaded .zip file
-    mv $WORKDIR/$SYSNAME/7800.ROM $WORKDIR/"7800 BIOS (U).rom"
-    #COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
     CHECK_SUM ## verrify and if valid copy to $BIOSDIR
 fi
 }
