@@ -882,6 +882,62 @@ else ## if not then download, extract, copy to workdir and check for validity.
 fi
 }
 
+AMIGA(){
+echo "Amiga"
+SYSNAME="Amiga" ##	Systemname for wich a workingdir is created. 
+EXT="zip"	## The extention of the downloaded file.
+
+LINK="http://amigas.ru/amiftp/index.php?dir=AmiFTP/Amiga%20Kickstart%20Roms%20-%20Complete%20-%20TOSEC%20v0.04/KS-ROMs/&file=Kickstart%20v1.3%20rev%2034.5%20%281987%29%28Commodore%29%28A3000%29.rom"	## The link to download a file from.
+BIOSNAME="kick13.rom" ## The name of the file needed by emulators.
+CHECKSUM="192d6d950d0ed3df8040b788502831c2" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_FILE ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    #EXTRACTZIP ## Extract downoaded .zip file
+    #cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
+LINK="http://amigas.ru/amiftp/index.php?dir=AmiFTP/Amiga%20Kickstart%20Roms%20-%20Complete%20-%20TOSEC%20v0.04/KS-ROMs/&file=Kickstart%20v2.05%20rev%2037.300%20%281991%29%28Commodore%29%28A600HD%29.rom"	## The link to download a file from.
+BIOSNAME="kick20.rom" ## The name of the file needed by emulators.
+CHECKSUM="dc10d7bdd1b6f450773dfb558477c230" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_FILE ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    #EXTRACTZIP ## Extract downoaded .zip file
+    #cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+
+LINK="http://amigas.ru/amiftp/index.php?dir=AmiFTP/Amiga%20Kickstart%20Roms%20-%20Complete%20-%20TOSEC%20v0.04/KS-ROMs/&file=Kickstart%20v3.1%20rev%2040.70%20%281993%29%28Commodore%29%28A4000%29.rom"	## The link to download a file from.
+BIOSNAME="kick31.rom" ## The name of the file needed by emulators.
+CHECKSUM="e40a5dfb3d017ba8779faba30cbd1c8e" ## The checksum to be checked if file is valid.
+if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
+then ## if file exists then verify if checksum checks out.
+    echo "$BIOSNAME already exists, checking if file is valid."
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## if not then download, extract, copy to workdir and check for validity.
+	echo "$BIOSNAME does not exist."
+    MAKE_WORKDIR
+    DOWNLOAD_FILE ## Use DOWNLOAD_FILE if its a direct link to a .rom file
+    #EXTRACTZIP ## Extract downoaded .zip file
+    #cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
+    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
+    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+fi
+}
 #
 #	LIST OF SYSTEM BIOS FILES WITH CHECKSUM AND DOWNLOADLINK (WIP):
 #
@@ -891,10 +947,6 @@ fi
 
 #36	Intellivision	exec.bin	62e761035cb657903761800f4437b8af	 
 #38	Intellivision	grom.bin	0cd5946c6473e42e8e4c2137785e427f	 
-
-#40	Amiga	kick13.rom	192d6d950d0ed3df8040b788502831c2	 
-#41	Amiga	kick20.rom	dc10d7bdd1b6f450773dfb558477c230	 
-#42	Amiga	kick31.rom	e40a5dfb3d017ba8779faba30cbd1c8e	 
 
 #43	TRS-80	level2.rom	ca74822ebc2803c6635a55116ecd9539	 
 
@@ -964,6 +1016,11 @@ echo "####################################"
 #49	PSX	scph5501.bin	924e392ed05558ffdb115408c263dccf	 
 #50	PSX	scph5502.bin	e56ec1b027e2fe8a49217d9678f7f6bb	 
 
+#40	Amiga	kick13.rom	192d6d950d0ed3df8040b788502831c2
+#41	Amiga	kick20.rom	dc10d7bdd1b6f450773dfb558477c230	 
+#42	Amiga	kick31.rom	e40a5dfb3d017ba8779faba30cbd1c8e	 
+# LINK:	http://amigas.ru/amiftp/index.php?dir=AmiFTP/Amiga%20Kickstart%20Roms%20-%20Complete%20-%20TOSEC%20v0.04/KS-ROMs/&file=Kickstart%20v1.3%20rev%2034.5%20%281987%29%28Commodore%29%28A3000%29.rom
+
 }
 #EXAMPLE_SYSTEM 
 
@@ -983,6 +1040,7 @@ DREAMCAST
 #VIDEOPAC-ODYSSEY
 #PC_ENGINE
 #PSX
+AMIGA
 
 DONE
 }
