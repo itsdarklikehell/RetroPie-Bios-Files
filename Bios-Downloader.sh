@@ -1119,7 +1119,7 @@ THEME(){
 echo " = = = = = = = = = = = = = = = = = = = = "
 echo "Installing custom emulationstation theme...(STILL WIP)"
 echo " = = = = = = = = = = = = = = = = = = = = "
-CURNTHEME="/etc/emulationstation/carbon"
+CURNTHEME="/etc/emulationstation/themes/carbon"
 NEWTHEME="/opt/retropie/configs/all/emulationstation/themes/carbon-custom"
 NEWART="menu-files/bios-downloader/art"
 cp -R $CURNTHEME $NEWTHEME
