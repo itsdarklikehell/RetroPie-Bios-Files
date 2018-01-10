@@ -1124,7 +1124,7 @@ NEWTHEME="/opt/retropie/configs/all/emulationstation/themes/carbon-custom"
 NEWART="menu-files/bios-downloader/art"
 cp -R $CURNTHEME $NEWTHEME
 cp -R $NEWART $NEWTHEME/bgm/art
-cp -R $WORKINGDIR/bios-downloader/theme.xml $NEWTHEME/bios-downloader/theme.xml
+cp -R menu-files/bios-downloader/theme.xml $NEWTHEME/bios-downloader/theme.xml
 echo "A new cutom theme has been set up at $NEWTHEME"
 echo "Select it in emulationstation to use it"
 read -rsp $'Press any key to continue...\n' -n 1 key
