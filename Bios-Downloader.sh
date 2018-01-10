@@ -1127,7 +1127,7 @@ cp -R $NEWART $NEWTHEME/bgm/art
 cp -R $WORKINGDIR/bios-downloader/theme.xml $NEWTHEME/bios-downloader/theme.xml
 echo "A new cutom theme has been set up at $NEWTHEME"
 echo "Select it in emulationstation to use it"
-read -rsp $'Press any key to continue...\n'-n 1 key
+read -rsp $'Press any key to continue...\n' -n 1 key
 }
 ######## EXECUTION ########
 CONFIGURE
