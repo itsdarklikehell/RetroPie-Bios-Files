@@ -1122,9 +1122,9 @@ echo " = = = = = = = = = = = = = = = = = = = = "
 CURNTHEME="/etc/emulationstation/themes/carbon"
 NEWTHEME="/opt/retropie/configs/all/emulationstation/themes/carbon-custom"
 NEWART="$PWD/menu-files/bios-downloader/art"
-cp -r $CURNTHEME $NEWTHEME
-cp -r $NEWART $NEWTHEME/bios-downloader/art
-cp -r $PWD/menu-files/bios-downloader/theme.xml $NEWTHEME/bios-downloader/theme.xml
+cp $CURNTHEME $NEWTHEME
+cp $NEWART $NEWTHEME/bios-downloader/art
+cp $PWD/menu-files/bios-downloader/theme.xml $NEWTHEME/bios-downloader/theme.xml
 echo "A new cutom theme has been set up at $NEWTHEME"
 echo "Select it in emulationstation to use it"
 read -rsp $'Press any key to continue...\n' -n 1 key
