@@ -1117,7 +1117,7 @@ DONE
 }
 THEME(){
 echo " = = = = = = = = = = = = = = = = = = = = "
-echo "Installing custom emulationstation theme...(STILL WIP)"
+echo "Installing custom emulationstation theme..."
 echo " = = = = = = = = = = = = = = = = = = = = "
 CURNTHEME="/etc/emulationstation/themes/carbon"
 NEWTHEME="/opt/retropie/configs/all/emulationstation/themes/carbon-custom"
