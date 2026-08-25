@@ -26,6 +26,7 @@ echo "as $BIOSNAME"
 wget -c $LINK -O $WORKDIR/$BIOSNAME
 }
 
+# shellcheck disable=SC2120
 CHECK_SUM(){
 if [[ $SYSNAME  = Atari-7800 ]]
 then
@@ -33,7 +34,7 @@ then
 else
 	md5sum $WORKDIR/$BIOSNAME | awk '{ print $1 }'
 fi
-if [[ $1 = $CHECKSUM ]] ## checking if $1 is $CHECKSUM.
+if [[ $1 = "$CHECKSUM" ]] ## checking if $1 is $CHECKSUM.
 then ## if not then download, extract, copy to workdir and check for validity.
     echo " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! "
     echo "The checksum of $BIOSNAME is NOT VALID, it is not the same as $CHECKSUM !"
@@ -1017,7 +1018,7 @@ fi
 #47	Sega Saturn	saturn_bios.bin	af5828fdff51384f99b3c4926be27762	 
 
 
-DONE(){
+DONE_MSG(){
 echo "####################################"
 echo "all bios files have been checked and downloaded!"
 echo "####################################"
@@ -1113,7 +1114,7 @@ echo "####################################"
 #DRAGON32
 INTELLIVISION
 
-DONE
+DONE_MSG
 }
 THEME(){
 echo " = = = = = = = = = = = = = = = = = = = = "
@@ -1128,7 +1129,7 @@ cp -u $NEWART $NEWTHEME/bios-downloader/art
 cp -u menu-files/theme.xml $NEWTHEME/bios-downloader/theme.xml
 echo "A new custom theme has been set up at $NEWTHEME"
 echo "Select it in emulationstation to use it"
-read -rsp $'Press any key to continue...\n' -n 1 key
+read -rsp $'Press any key to continue...\n' -n 1
 }
 ######## EXECUTION ########
 CONFIGURE
