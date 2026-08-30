@@ -544,7 +544,7 @@ fi
 SEGA_CD(){
 echo "Sega CD"
 SYSNAME="Sega-CD" ##	Systemname for wich a workingdir is created. 
-LINK="http://fantasyanime.com/files/emulators/SegaCD_BIOS.zip"	## The link to download a file from.
+LINK="https://fantasyanime.com/files/emulators/SegaCD_BIOS.zip"	## The link to download a file from.
 EXT="zip"	## The extention of the downloaded file.
 
 
@@ -596,24 +596,21 @@ fi
 
 SEGA_CD2(){
 echo "Sega-CD2"
-SYSNAME="Sega-CD2" ##	Systemname for wich a workingdir is created. 
-LINK="https://www.k3nny.fr/BIOS_Recalbox_v4.1.zip"	## The link to download a file from.
-EXT="zip"	## The extention of the downloaded file.
+SYSNAME="Sega-CD2" ##		Systemname for wich a workingdir is created. 
 
+## The original source (k3nny.fr/BIOS_Recalbox_v4.1.zip) now returns HTTP 404.
+## BIOS files are copyrighted; supply eu_mcd2_9306.bin / us_scd2_9306.bin /
+## jp_mcd1_9112.bin from your own hardware dump. The md5sum check below still
+## verifies any file you provide.
 BIOSNAME="eu_mcd2_9306.bin" ## The name of the file needed by emulators.
 CHECKSUM="d8b8b720dea6c6ba25c309ed633930f4" ## The checksum to be checked if file is valid.
 if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if file exists then verify if checksum checks out.
     echo "$BIOSNAME already exists, checking if file is valid."
     CHECK_SUM ## verrify and if valid copy to $BIOSDIR
-else ## if not then download, extract, copy to workdir and check for validity.
-	echo "$BIOSNAME does not exist."
-    MAKE_WORKDIR
-    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
-    EXTRACTZIP ## Extract downoaded .zip file
-    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
-    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
-    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## file not present: auto-download offline, instruct user.
+    echo "$BIOSNAME not found and auto-download is offline (source 404)."
+    echo "Place a verified $BIOSNAME (md5: $CHECKSUM) into $BIOSDIR, then re-run."
 fi
 
 BIOSNAME="us_scd2_9306.bin" ## The name of the file needed by emulators.
@@ -622,14 +619,9 @@ if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if file exists then verify if checksum checks out.
     echo "$BIOSNAME already exists, checking if file is valid."
     CHECK_SUM ## verrify and if valid copy to $BIOSDIR
-else ## if not then download, extract, copy to workdir and check for validity.
-	echo "$BIOSNAME does not exist."
-    MAKE_WORKDIR
-    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
-    EXTRACTZIP ## Extract downoaded .zip file
-    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
-    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
-    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## file not present: auto-download offline, instruct user.
+    echo "$BIOSNAME not found and auto-download is offline (source 404)."
+    echo "Place a verified $BIOSNAME (md5: $CHECKSUM) into $BIOSDIR, then re-run."
 fi
 
 BIOSNAME="jp_mcd1_9112.bin" ## The name of the file needed by emulators.
@@ -638,14 +630,9 @@ if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if file exists then verify if checksum checks out.
     echo "$BIOSNAME already exists, checking if file is valid."
     CHECK_SUM ## verrify and if valid copy to $BIOSDIR
-else ## if not then download, extract, copy to workdir and check for validity.
-	echo "$BIOSNAME does not exist."
-    MAKE_WORKDIR
-    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
-    EXTRACTZIP ## Extract downoaded .zip file
-    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
-    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
-    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## file not present: auto-download offline, instruct user.
+    echo "$BIOSNAME not found and auto-download is offline (source 404)."
+    echo "Place a verified $BIOSNAME (md5: $CHECKSUM) into $BIOSDIR, then re-run."
 fi
 
 }
@@ -675,24 +662,21 @@ fi
 
 DREAMCAST(){
 echo "Dreamcast"
-SYSNAME="Dreamcast" ##	Systemname for wich a workingdir is created. 
-LINK="https://www.k3nny.fr/BIOS_Recalbox_v4.1.zip"	## The link to download a file from.
-EXT="zip"	## The extention of the downloaded file.
+SYSNAME="Dreamcast" ##		Systemname for wich a workingdir is created. 
 
+## The original source (k3nny.fr/BIOS_Recalbox_v4.1.zip) now returns HTTP 404.
+## BIOS files are copyrighted; supply dc_boot.bin / dc_flash.bin from your own
+## hardware dump into ~/RetroPie/BIOS/ (lr-flycast also reads a dc/ subfolder).
+## The md5sum check below still verifies any file you provide.
 BIOSNAME="dc_boot.bin" ## The name of the file needed by emulators.
 CHECKSUM="e10c53c2f8b90bab96ead2d368858623" ## The checksum to be checked if file is valid.
 if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if file exists then verify if checksum checks out.
     echo "$BIOSNAME already exists, checking if file is valid."
     CHECK_SUM ## verrify and if valid copy to $BIOSDIR
-else ## if not then download, extract, copy to workdir and check for validity.
-	echo "$BIOSNAME does not exist."
-    MAKE_WORKDIR
-    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
-    EXTRACTZIP ## Extract downoaded .zip file
-    cp $WORKDIR/$SYSNAME/bios/dc_bios.bin $WORKDIR/$SYSNAME/$BIOSNAME
-    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
-    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## file not present: auto-download offline, instruct user.
+    echo "$BIOSNAME not found and auto-download is offline (source 404)."
+    echo "Place a verified $BIOSNAME (md5: $CHECKSUM) into $BIOSDIR, then re-run."
 fi
 
 BIOSNAME="dc_flash.bin" ## The name of the file needed by emulators.
@@ -701,14 +685,9 @@ if [ -e $WORKDIR/$BIOSNAME ] ## checking if file is present.
 then ## if file exists then verify if checksum checks out.
     echo "$BIOSNAME already exists, checking if file is valid."
     CHECK_SUM ## verrify and if valid copy to $BIOSDIR
-else ## if not then download, extract, copy to workdir and check for validity.
-	echo "$BIOSNAME does not exist."
-    MAKE_WORKDIR
-    DOWNLOAD_ZIP ## Use DOWNLOAD_FILE if its a direct link to a .rom file
-    EXTRACTZIP ## Extract downoaded .zip file
-    cp $WORKDIR/$SYSNAME/bios/$BIOSNAME $WORKDIR/$SYSNAME
-    COPY_BIOSNAME_WORKDIR ## copy $BIOSNAME to $WORKDIR
-    CHECK_SUM ## verrify and if valid copy to $BIOSDIR
+else ## file not present: auto-download offline, instruct user.
+    echo "$BIOSNAME not found and auto-download is offline (source 404)."
+    echo "Place a verified $BIOSNAME (md5: $CHECKSUM) into $BIOSDIR, then re-run."
 fi
 }
 
