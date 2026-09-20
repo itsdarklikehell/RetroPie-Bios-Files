@@ -1,0 +1,66 @@
+name: Gource visualization
+
+on:
+  push:
+    branches: [master, main]
+  workflow_dispatch:
+
+concurrency:
+  group: gource-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gource:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Gource Action
+        uses: nbprojekt/gource-action@v1
+        with:
+          gource_title: "${{ github.event.repository.name }} development timeline"
+          gource_resolution: 1080p
+          gource_fps: 60
+          gource_filename_time: 3
+          gource_hide_items: "mouse,date,filenames"
+          gource_highlight_users: true
+          gource_stop_at_end: true
+          gource_auto_skip_seconds: 0.1
+          gource_multi_sampling: true
+          gource_seconds_per_day: 0.4
+
+      - name: Install ffmpeg (runner)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+
+      - name: Upscale + re-encode
+        run: |
+          ffmpeg -y -i ./gource/gource.mp4 \
+            -c:v libx264 -crf 18 -level 4.1 -preset medium -tune film \
+            -filter:v "scale=-1:1080" -sws_flags lanczos \
+            -c:a aac -b:a 192k -ar 48000 \
+            -movflags +faststart \
+            ./gource.mp4
+
+      - name: Upload gource video
+        uses: actions/upload-artifact@v4
+        with:
+          name: gource-visualization
+          path: ./gource.mp4
+          retention-days: 30
+
+      - name: Commit gource video
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add gource.mp4 || true
+          git diff --staged --quiet || git commit -m "ci: update gource visualization (automated)"
+          git push
