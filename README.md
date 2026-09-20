@@ -133,3 +133,11 @@ ca30b50f880eb660a320674ed365ef7a
 51	PC Engine / TurboGrafx 16	syscard3.pce	ff1a674273fe3540ccef576376407d1d	 
 
 52	Sega CD	us_scd2_9306.bin	854b9150240a198070150e4566ae1290	
+
+---
+
+## 🎥 Gource Visualization
+
+De ontwikkelhistorie van dit project in een film:
+
+<video src="https://raw.githubusercontent.com/itsdarklikehell/RetroPie-Bios-Files/master/gource.mp4" controls width="100%"></video>
