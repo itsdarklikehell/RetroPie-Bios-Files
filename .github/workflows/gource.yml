@@ -23,7 +23,7 @@ jobs:
           fetch-depth: 0
 
       - name: Gource Action
-        uses: nbprojekt/gource-action@v1
+        uses: nbprojekt/gource-action@57256d303c5a9a5e72ed92ba13e3e83c5ec8b257 # v1.3.0
         with:
           gource_title: "${{ github.event.repository.name }} development timeline"
           gource_resolution: 1080p
