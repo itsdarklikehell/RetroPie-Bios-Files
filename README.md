@@ -1,4 +1,9 @@
 # RetroPie-Bios-Files
+
+<img src="https://img.shields.io/github/stars/itsdarklikehell/RetroPie-Bios-Files?style=flat-square&color=blue" alt="Stars">
+<img src="https://img.shields.io/github/forks/itsdarklikehell/RetroPie-Bios-Files?style=flat-square&color=green" alt="Forks">
+<img src="https://img.shields.io/github/license/itsdarklikehell/RetroPie-Bios-Files?style=flat-square" alt="License">
+
 Download and extract bios files needed for emulation in proper directories on RetroPie.
 
 Note:
