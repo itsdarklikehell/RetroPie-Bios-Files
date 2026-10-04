@@ -2,6 +2,7 @@
 #echo "= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = ="
 #echo "RetroPie/RetroArch/EmulationStation Bios files downloader"
 #echo "= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = ="
+set -euo pipefail
 CONFIGURE(){
 echo "configuring working directories and copying bios files allready present in ~/RetroPie/BIOS directory to working directory"
 WORKDIR=~/RetroPie-Bios-Files/BIOS
