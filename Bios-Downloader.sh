@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 #echo "= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = ="
 #echo "RetroPie/RetroArch/EmulationStation Bios files downloader"
 #echo "= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = ="
@@ -34,7 +35,7 @@ then
 else
 	md5sum $WORKDIR/$BIOSNAME | awk '{ print $1 }'
 fi
-if [[ $1 = "$CHECKSUM" ]] ## checking if $1 is $CHECKSUM.
+if [[ $1 != "$CHECKSUM" ]] ## checking if $1 is NOT $CHECKSUM.
 then ## if not then download, extract, copy to workdir and check for validity.
     echo " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! "
     echo "The checksum of $BIOSNAME is NOT VALID, it is not the same as $CHECKSUM !"
