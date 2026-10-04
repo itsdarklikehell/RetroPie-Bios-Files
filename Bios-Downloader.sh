@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 #echo "= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = ="
 #echo "RetroPie/RetroArch/EmulationStation Bios files downloader"
 #echo "= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = ="
